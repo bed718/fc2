@@ -61,7 +61,9 @@
  * @see template_preprocess_search_result()
  * @see template_process()
  */
+
 ?>
+<pre><?php print_r($result['fields']);?></pre>
 <li class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <?php print render($title_prefix); ?>
   <h3 class="title"<?php print $title_attributes; ?>>

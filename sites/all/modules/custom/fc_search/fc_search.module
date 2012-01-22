@@ -47,6 +47,22 @@ function fc_search_apachesolr_index_documents_alter(array &$documents, $entity, 
 }// end function fc_search_apachesolr_index_documents_alter(array &$documents, $entity, $entity_type, $env_id = '')
 
 /**
+ * hook_alter for apachesolr_query
+ * Add any additional field requests to query object
+ *
+ * @param StdClass $query ApacheSolrQuery object
+ */
+function fc_search_apachesolr_query_alter($query) {
+
+  // Specify additional fields to add here
+  // note they must already exist in the index, as added in fc_search_apachesolr_index_documents_alter
+  $fields_to_add = array();
+  $fields_to_add[] = 'sm_vid_Focus';
+  $fields_to_add[] = 'tm_vid_2_names';
+  $query->addParam('fl', $fields_to_add);
+}
+
+/**
  * Returns HTML for an active facet item.
  * Correctly uses current path for facets so they return the user to the start search page
  * Based on facetapi.theme.inc theme_facetapi_link_active
