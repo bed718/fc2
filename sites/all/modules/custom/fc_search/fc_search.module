@@ -79,9 +79,12 @@ function fc_classic_facetapi_link_active($variables) {
   $variables['text'] = t('!facetapi_deactivate_widget !facetapi_accessible_markup', $replacements);
   $variables['options']['html'] = TRUE;
 
+  // include the link text inside the link
+  $variables['text'] .= $link_text;
+
   // correctly use the current search page's path
   $variables['path'] = $_GET['q'];
-  return theme_link($variables) . $link_text;
+  return theme_link($variables);
 }
 
 /**
@@ -114,6 +117,9 @@ function fc_classic_facetapi_link_inactive($variables) {
     $variables['text'] .= ' ' . theme('facetapi_count', $variables);
   }
 
+  // Add + link inside of link text
+  $variables['text'] = '<span>+</span> '. $variables['text'];
+
   // Resets link text, sets to options to HTML since we already sanitized the
   // link text and are providing additional markup for accessibility.
   $variables['text'] .= $accessible_markup;
@@ -121,7 +127,7 @@ function fc_classic_facetapi_link_inactive($variables) {
 
   // correctly use the current page's path
   $variables['path'] = $_GET['q'];
-  return '<span>+</span> '. theme_link($variables);
+  return theme_link($variables);
 }
 
 /**
