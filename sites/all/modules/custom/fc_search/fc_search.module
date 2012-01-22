@@ -63,7 +63,7 @@ function fc_search_apachesolr_index_documents_alter(array &$documents, $entity, 
       break;
       
       case 'video':
-      	
+      	$documents[0]->addField('ss_teaser_image', $entity->field_video_url['und'][0]['thumbnail_path']);
       break;
       
       case 'news':
