@@ -76,18 +76,18 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 -------------------------------------------------------------- */
 /* MAIN NAV */
 #block-nice-menus-1{position: absolute; bottom: 0; left: 185px;}
-	#block-nice-menus-1 a{line-height: 30px; text-transform: uppercase; font-family: 'BebasNeueRegular'; font-size: 18px; padding: 0 10px; display: block;}
+	#block-nice-menus-1 a{line-height: 40px; height: 38px; text-transform: uppercase; font-family: 'BebasNeueRegular'; font-size: 24px; padding: 0 10px; display: block; letter-spacing: 1px;}
 	#block-nice-menus-1 ul{list-style: none;}
 		#block-nice-menus-1 ul li{float: left; margin-right: 8px; border: none;}
 			#block-nice-menus-1 ul li a{color: #354141; background: #fff; border-bottom: #5A9B9D solid 8px;}
 			#block-nice-menus-1 ul li a:hover{color: #5A9B9D; background: #354141;}
 			#block-nice-menus-1 ul li.active-trail a, #block-nice-menus-1 ul li a.active{color: #5A9B9D; background: #354141; border-bottom: #354141 solid 8px;}
 			
-		#block-nice-menus-1 ul ul{border: none; margin-top: 7px;}
+		#block-nice-menus-1 ul ul{border: none; margin-top: 15px;}
 			#block-nice-menus-1 ul ul li{}
 				#block-nice-menus-1 ul ul li a, #block-nice-menus-1 ul li.active-trail ul a{color: #354141; background: #fff; border: none;}
-				#block-nice-menus-1 ul ul li a.active{color: #5A9B9D; background: #354141; border-bottom: #354141 solid 8px;}
-
+				#block-nice-menus-1 ul ul li a.active{color: #5A9B9D; background: #354141;}
+				#block-nice-menus-1 ul li.active-trail a:hover{color: #5A9B9D; background: #354141;}
 
 
 /* USER NAV */
@@ -152,6 +152,11 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 .block-current-search .filter-icon{background: #fff;}
 
 #block-apachesolr-search-sort a{padding-left: 5px;}
+
+.filter-info{margin-bottom: 10px; text-align: center;}
+.filter-info div{font-size: 14px; background: #2a3131; padding: 5px; margin-bottom: 5px;}
+.filter-info img{}
+
 
 
 /* MAIN
@@ -427,14 +432,7 @@ _____________________________________________________________________________
 
 /* FILTER STYLES
 -------------------------------------------------------------- */
-.filters{margin-bottom: 20px;}
-	.filters h2{background: #5A9B9D; font-size: 12px; font-weight: bold; text-align: center; line-height: 20px; padding: 0 5px; height: 20px; color: #354141; text-transform: uppercase; margin-bottom: 5px;}
-	.filters li a{background: #394A4A; height: 20px; line-height: 18px; font-size: 12px; font-weight: bold; display: block; margin-bottom: 4px;}
-		.filters li a span{background: #5A9B9D; margin-right: 5px; color: #354141; height: 20px; font-size: 14px; width: 10px; text-align: center; display: inline-block; font-weight: bold; width: 20px;}
-	.filters li a:hover, .filters li.active a{color: #fff;}
-	.filters li a:hover span, .filters li.active a span{background: #fff;}
-
-.main-focus{height: 52px; margin-bottom: 30px;}
+.main-focus{height: 52px; margin-bottom: 10px;}
 	.main-focus .people{position: absolute; top: 0; left: 0;}
 	.main-focus .enviro{position: absolute; top: 0; left: 50%; margin-left: -26px;}
 	.main-focus .animal{position: absolute; top: 0; right: 0;}
