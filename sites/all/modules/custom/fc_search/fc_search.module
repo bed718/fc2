@@ -105,7 +105,50 @@ function fc_search_apachesolr_query_alter($query) {
   $fields_to_add[] = 'ss_profile_type';
   $fields_to_add[] = 'ss_profile_name';
   $fields_to_add[] = 'ss_profile_type';
+  $fields_to_add[] = 'dm_field_event_date';
   $query->addParam('fl', $fields_to_add);
+  
+ // dpm($query);
+}
+
+function apachesolr_sort_weight_sort($a, $b) {
+  return strcmp($a['weight'], $b['weight']);
+}
+
+
+function fc_search_apachesolr_query_prepare($query) {
+  
+  
+  $query->removeAvailableSort('bundle');
+  $query->removeAvailableSort('sort_name');
+  $query->removeAvailableSort('sort_name');
+  //$query->removeAvailableSort('ds_created');
+  
+  $sorts = $query->getAvailableSorts();
+  
+    
+  $query->setAvailableSort('dm_field_event_date', array(
+    'title' => t('Event Date'),
+    'default' => 'asc',
+  ));
+  
+  $sorts = $query->getAvailableSorts();
+  $sorts['ds_created']['weight'] = 0;
+  $sorts['sort_label']['weight'] = 1;
+  $sorts['score']['weight'] = 2;
+  $sorts['dm_field_event_date']['weight'] = 3;
+  
+  if (!isset($_GET['solrsort'])) {
+  	$query->sortstring = 'ds_created desc';
+  }
+
+  
+  $sorts['sort_label']['title'] = t('Alphabetical');
+  
+  uasort($sorts, "apachesolr_sort_weight_sort");
+
+  $query->setAvailableSorts($sorts);
+
 }
 
 /**

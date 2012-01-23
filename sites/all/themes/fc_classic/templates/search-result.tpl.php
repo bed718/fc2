@@ -82,6 +82,7 @@
 */
 ?>
 <div class="teaser">
+
 	<?php if($thumbnail): ?>
 	<div class="image-icons">
 		
