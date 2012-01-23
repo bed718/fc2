@@ -87,6 +87,23 @@ label.option{float: none;  color: #5A9B9D; font-size: 12px; font-weight: bold;}
 .form-item-captcha-response .description{width: 286px; margin-left: 254px;}
 .form-item-captcha-response .field-prefix{width: 60px; display: inline-block;}
 
+
+/* SEARCH FORM STYLES
+-------------------------------------------------------------- */
+.search-form{background: #394A4A; padding: 10px;}
+.search-form .form-submit{background: #fff; float: left;}
+.search-form .form-submit:hover{background: #5A9B9D;}
+.search-form input[type="text"]{width: 200px;}
+.search-form .form-item-keys{float: left; margin-right: 5px; margin-bottom: 0;}
+.search-form .form-item-keys label{float: left; width: auto; text-align: left; font-family: 'BebasNeueRegular';	font-size: 25px; height: 36px; line-height: 36px; font-weight: normal; letter-spacing: 1px;}
+.search-form .form-item-retain-filters,
+.form-item-apachesolr-search-retain-filters{clear: both;   font-size: 10px; padding-left: 10px; margin-bottom: 0; height: 36px; line-height: 30px;}
+
+.spelling-suggestions{background: #3D5354; padding: 5px; margin-top: -10px; margin-bottom: 20px;}
+.spelling-suggestions dl{margin-bottom: 0;}
+.spelling-suggestions dt{float: left;  margin-right: 10px;}
+
+
 /* USERNAME FORM STYLES
 -------------------------------------------------------------- */
 .field-suffix{display: none;}

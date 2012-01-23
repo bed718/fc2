@@ -20,7 +20,7 @@ function fc_classic_preprocess_page(&$vars){
 	}
 	
 	$vars['user']->profile_path = '/fc/' . $vars['user']->user_type . '/' . $vars['user']->name;
-	kpr($vars);
+	//kpr($vars);
 }
  
 
@@ -207,7 +207,7 @@ function fc_classic_fieldset($variables) {
 }
 
 function fc_classic_preprocess_search_results(&$vars) {
-	dpm($vars);
+	//dpm($vars);
 }
 
 function fc_classic_preprocess_search_result(&$vars) {

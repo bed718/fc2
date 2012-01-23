@@ -22,9 +22,9 @@
  */
 ?>
 <?php if ($search_results): ?>
-  <div class="section-header">
-    <h2><?php print t('Search results123');?></h2>
-  </div>
+ <div class="section-header">
+ 	<h2><?php print t('Search Results'); ?></h2>
+ </div>
   <div class="search-results <?php print $module; ?>-results">
     <?php print $search_results; ?>
   </div>
