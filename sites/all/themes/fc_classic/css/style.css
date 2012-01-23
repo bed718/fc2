@@ -6,6 +6,7 @@ COLORS
 	Med Green:			#394A4A
 	Darker Green:		#2a3131
 	Dark Red:			#783d3d
+	BTN Green:			#3D5354
 	Light Red:			#ec7d7d
 	Light Green:		#AFD5D6
 	Other Green:		#497274
@@ -112,7 +113,19 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 #search{position: absolute; bottom: 0; right: 0; display: none;}
 	#search .form-text{border: none; display: inline-block; padding: 0; height: 25px; line-height: 25px; font-size: 14px;}
 	#search .form-submit{border: none; background: #fff none; color: #354141; line-height: 25px; height: 25px; text-transform: uppercase; font-family: 'BebasNeueRegular'; font-size: 16px;  display: inline-block;}
-	
+
+/* FILTER STYLES
+-------------------------------------------------------------- */
+.block-facetapi, #block-apachesolr-search-sort{margin-bottom: 30px;}
+.block-facetapi h2, #block-apachesolr-search-sort h2{background: #5A9B9D; font-size: 12px; font-weight: bold; text-align: center; line-height: 20px; padding: 0 5px; height: 20px; color: #354141; text-transform: uppercase; margin-bottom: 5px;}
+.block-facetapi li.leaf, #block-apachesolr-search-sort li{list-style: none; margin: 0;}
+.block-facetapi li a, #block-apachesolr-search-sort a{background: #394A4A; height: 20px; line-height: 18px; font-size: 12px; font-weight: bold; display: block; margin-bottom: 4px;}
+.block-facetapi li a:hover, #block-apachesolr-search-sort a:hover{background: #3D5354;}
+.block-facetapi .filter-icon{background: #5A9B9D; margin-right: 5px; color: #354141; height: 20px; font-size: 14px; width: 10px; text-align: center; display: inline-block; font-weight: bold; width: 20px;}
+.block-facetapi a.facetapi-active, #block-apachesolr-search-sort a.active{color: #fff; background: #3D5354;}
+.block-facetapi a.facetapi-active .filter-icon{background: #fff;}
+#block-apachesolr-search-sort a{padding-left: 5px;}
+
 
 /* MAIN
 -------------------------------------------------------------- */
@@ -236,6 +249,16 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 		.teaser-featured-large .teaser .details h1 a{color: #354141;}
 			.teaser-featured-large .teaser .details h1 a:hover{color: #5A9B9D;}
 
+/* TEASER DETAILS ---------------------- */
+.teaser-details{margin-bottom: 20px}
+	.teaser-details .image-icons{width: 175px; float: left; z-index: 100; border-right: #354141 solid 5px; margin: 0;}
+	.teaser-details .details{min-height: 63px; background: #394A4A;}
+	.teaser-details .details h1{font-size: 20px; margin-left: 180px;}
+	.teaser-details .details .stats{ margin-left: 180px;}
+	.teaser-details .details .stats .date{margin-right: 5px;}
+	.teaser-details .details .stats .type{margin-right: 5px;}
+	.teaser-details .charity-details{border-top: #354141 solid 5px; background: #3D5354; min-height: 50px;}
+	.teaser-details .charity-image{float: left;  line-height: 0; border-right: #354141 solid 5px; margin-right: 5px;}
 
 /* ARCHIVE STYLES
 -------------------------------------------------------------- */
@@ -400,8 +423,8 @@ _____________________________________________________________________________
 
 
 /* BUTTON STYLES ---------------------- */	
-.more-toggle, .open-btn{font-size: 10px; background: #3d5354; height: 20px; line-height: 20px; text-align: center; cursor: pointer; text-transform: uppercase; font-weight: bold; margin-top: 5px}
-.more-toggle:hover, .open-btn:hover{color: #fff;}
+.more-toggle, .open-btn, .facetapi-limit-link{font-size: 10px; background: #3d5354; height: 20px; line-height: 20px; text-align: center; cursor: pointer; text-transform: uppercase; font-weight: bold; margin-top: 5px; display: block;}
+.more-toggle:hover, .open-btn:hover, .facetapi-limit-link:hover{color: #fff;}
 
 .close-btn a{height: 30px; width: 30px; text-align: center !important; font-size: 20px; color: #354141; display: block; line-height: 30px; -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; background: #5A9B9D; border: #354141 solid 4px; font-weight: bold;}
 .close-btn a:hover{background: #fff;}

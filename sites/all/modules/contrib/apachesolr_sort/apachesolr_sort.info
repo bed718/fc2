@@ -1,0 +1,12 @@
+; $Id: apachesolr_sort
+name=Apachesolr sort
+description=Manage your Apachesolr sorts through an UI
+package = Search Toolkit
+core = "7.x"
+
+; Information added by drupal.org packaging script on 2011-12-01
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "apachesolr_sort"
+datestamp = "1322740902"
+
