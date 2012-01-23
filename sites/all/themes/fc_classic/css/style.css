@@ -114,16 +114,43 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 	#search .form-text{border: none; display: inline-block; padding: 0; height: 25px; line-height: 25px; font-size: 14px;}
 	#search .form-submit{border: none; background: #fff none; color: #354141; line-height: 25px; height: 25px; text-transform: uppercase; font-family: 'BebasNeueRegular'; font-size: 16px;  display: inline-block;}
 
+.search-results{width: 780px;}
+.search-results .teaser{width: 240px; float: left; margin-right: 20px; margin-bottom: 20px;}
+
+
 /* FILTER STYLES
 -------------------------------------------------------------- */
-.block-facetapi, #block-apachesolr-search-sort{margin-bottom: 30px;}
-.block-facetapi h2, #block-apachesolr-search-sort h2{background: #5A9B9D; font-size: 12px; font-weight: bold; text-align: center; line-height: 20px; padding: 0 5px; height: 20px; color: #354141; text-transform: uppercase; margin-bottom: 5px;}
-.block-facetapi li.leaf, #block-apachesolr-search-sort li{list-style: none; margin: 0;}
-.block-facetapi li a, #block-apachesolr-search-sort a{background: #394A4A; height: 20px; line-height: 18px; font-size: 12px; font-weight: bold; display: block; margin-bottom: 4px;}
-.block-facetapi li a:hover, #block-apachesolr-search-sort a:hover{background: #3D5354;}
-.block-facetapi .filter-icon{background: #5A9B9D; margin-right: 5px; color: #354141; height: 20px; font-size: 14px; width: 10px; text-align: center; display: inline-block; font-weight: bold; width: 20px;}
-.block-facetapi a.facetapi-active, #block-apachesolr-search-sort a.active{color: #fff; background: #3D5354;}
-.block-facetapi a.facetapi-active .filter-icon{background: #fff;}
+.block-facetapi, 
+#block-apachesolr-search-sort, 
+.block-current-search{margin-bottom: 30px;}
+
+.block-facetapi h2, 
+#block-apachesolr-search-sort h2, 
+.block-current-search h2{background: #5A9B9D; font-size: 12px; font-weight: bold; text-align: center; line-height: 20px; padding: 0 5px; height: 20px; color: #354141; text-transform: uppercase; margin-bottom: 5px;}
+
+.block-facetapi li.leaf, 
+#block-apachesolr-search-sort li, 
+.block-current-search .item-list li{list-style: none; margin: 0; background: #394A4A;height: 20px; line-height: 18px; font-size: 12px; font-weight: bold;  margin-bottom: 4px;}
+
+.block-facetapi li a, 
+#block-apachesolr-search-sort a, 
+.block-current-search a{ display: block;list-style: none; margin: 0; background: #394A4A;height: 20px; line-height: 18px; font-size: 12px; font-weight: bold;  margin-bottom: 4px;}
+.block-facetapi li a:hover, 
+#block-apachesolr-search-sort a:hover, 
+.block-current-search a:hover{background: #3D5354;}
+
+#block-apachesolr-search-sort li img{float: left; margin-right: 5px;  margin-left: 5px;}
+
+.block-facetapi .filter-icon,
+.block-current-search .filter-icon{background: #5A9B9D; margin-right: 5px; color: #354141; height: 20px; font-size: 14px; width: 10px; text-align: center; display: inline-block; font-weight: bold; width: 20px;}
+
+.block-facetapi a.facetapi-active, 
+#block-apachesolr-search-sort a.active, 
+.block-current-search .filter-icon {color: #fff; background: #3D5354;}
+
+.block-facetapi a.facetapi-active .filter-icon,
+.block-current-search .filter-icon{background: #fff;}
+
 #block-apachesolr-search-sort a{padding-left: 5px;}
 
 
@@ -407,7 +434,7 @@ _____________________________________________________________________________
 	.filters li a:hover, .filters li.active a{color: #fff;}
 	.filters li a:hover span, .filters li.active a span{background: #fff;}
 
-.main-focus{height: 52px;}
+.main-focus{height: 52px; margin-bottom: 30px;}
 	.main-focus .people{position: absolute; top: 0; left: 0;}
 	.main-focus .enviro{position: absolute; top: 0; left: 50%; margin-left: -26px;}
 	.main-focus .animal{position: absolute; top: 0; right: 0;}

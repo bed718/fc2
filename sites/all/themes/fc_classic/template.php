@@ -206,5 +206,59 @@ function fc_classic_fieldset($variables) {
   return $output;
 }
 
+function fc_classic_preprocess_search_result(&$vars) {
+	//kpr($vars);
+	$fields = $vars['result']['fields'];
+	
+	if($fields['zs_teaser_image']){
+		$image = $fields['zs_teaser_image'];
+	}else{
+		$image = $fields['zs_profile_image'];
+	}
+	//kpr($fields['sm_vid_Focus']);
+	$vars['animal_focus'] = $vars['enviro_focus'] = $vars['people_focus'] = FALSE;
+		if(isset($fields['sm_vid_Focus'])){
+			$focus = $fields['sm_vid_Focus'];
+			for($i = 0; $i < count($focus); $i++){
+				if($focus[$i] == 'Animal' ){
+					$vars['animal_focus'] = TRUE;
+				}
+				if($focus[$i] == 'Environment' ){
+					$vars['enviro_focus'] = TRUE;
+				}
+				if($focus[$i] == 'People' ){
+					$vars['people_focus'] = TRUE;
+				}
+			}
+			unset($i);
+		}
+		
+	/*
+if($vars['result']['bundle'] == 'event'){
+			//$date = date_create($fields);
+			$vars['created'] = 'when: ' . date_format($date, 'n/j/y');
+		}else{
+			$vars['created'] = format_date($fields['created'], 'custom', 'n/j/y');
+		}
+*/
+	$vars['created'] = format_date($fields['created'], 'custom', 'n/j/y');
+	$thumb_style = array( 'style_name' => 'thumbnail', 'path' => $image, 'alt' => $vars['title'],);
+	$vars['thumbnail'] = theme('image_style', $thumb_style);;
+	$vars['type'] = $vars['result']['bundle'];
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
 
 

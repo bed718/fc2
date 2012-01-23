@@ -56,11 +56,7 @@
 	       <?php print render($tabs); ?>
 	     </div>
 	   <?php endif; ?>
-	<?php if ($title123): ?>
-	 <div class="section-header">
-	   <h2><?php print $title; ?></h2>
-	 </div> <!-- /.section, /#messages -->
-	<?php endif; ?>
+	
   
 	<?php if ($page['sidebar_first']): ?>
 		<div class="sideleft">
@@ -68,6 +64,11 @@
 				<?php print render($page['sidebar_first']); ?>
 			</div>
 			<div class="main-content">
+			<?php if ($title): ?>
+			 <div class="section-header">
+			   <h2><?php print $title; ?></h2>
+			 </div> <!-- /.section, /#messages -->
+			<?php endif; ?>
 				<?php print render($page['content']); ?>
 			</div>
 		</div>
