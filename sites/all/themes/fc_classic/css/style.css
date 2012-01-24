@@ -1,5 +1,5 @@
 /* 
-2a3131
+
 COLORS 
 	Green:				#5A9B9D
 	Dark Green :		#354141
@@ -274,7 +274,7 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 	
 /* TEASER FEATURED CHARITY STYLES ---------------------- */	
 .teaser-featured-charity .teaser{width: 370px;}
-	.teaser-featured-charity .details h1{font-size: 16px; line-height: 16px; padding-right: 105px;}
+	.teaser-featured-charity .details h1{font-size: 16px; line-height: 16px; padding-right: 105px; min-height: 40px;}
 
 
 /* TEASER FEATURED LARGE STYLES ---------------------- */

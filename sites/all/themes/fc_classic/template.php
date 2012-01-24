@@ -74,9 +74,9 @@ function fc_classic_preprocess_node(&$vars){
 		
 		if(isset($image)){
 			if($vars['type'] == 'video'){
-				$thumb_style = array( 'style_name' => 'thumbnail', 'path' => $image['thumbnail_path']);
+				$thumb_style = array( 'style_name' => 'teaser_small', 'path' => $image['thumbnail_path']);
 			}else{
-				$thumb_style = array( 'style_name' => 'thumbnail', 'path' => $image['uri'], 'alt' => $image['alt'], 'title' => $image['title'],);
+				$thumb_style = array( 'style_name' => 'teaser_small', 'path' => $image['uri'], 'alt' => $image['alt'], 'title' => $image['title'],);
 			}
 			
 			$vars['thumbnail'] = theme('image_style', $thumb_style);

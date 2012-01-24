@@ -14,7 +14,7 @@
 	$focus = $fields['field_focus']->content;
 ?>
 
-<div class="teaser">
+<div class="teaser teaser-featured-charity">
 	<div class="section-header-inset">
 		<h2>Featured Charity</h2>
 		<a href="#" class="more-btn">MORE</a>
@@ -42,7 +42,7 @@
 	
 	<div class="details">
 		<h1><a href="/fc/charity/<?php print $fields['name']->content; ?>"><?php print $fields['field_charity_name']->content; ?> </a></h1>
-		
+		<div class="mission"><span class="q-mark">&ldquo;</span><?php print $fields['field_charity_mission_short']->content; ?><span class="q-mark">&rdquo;</span></div>
 		<div class="give-btn">
 			<div class="time-btn top-tip"  title="<div class='arrow'></div>donate your time"><a href="<?php print $time_link; ?>"></a></div>
 			<div class="money-btn top-tip show-doantion"  title="<div class='arrow'></div>donate money"><a href="#<?php //print $time_link; ?>"></a></div>

@@ -40,6 +40,6 @@
 	
 	<div class="details">
 		<h1><a href="/fc/charity/<?php print $fields['name']->content; ?>"><?php print $fields['field_charity_name']->content; ?></a></h1>
-		
+		<div class="mission"><span class="q-mark">&ldquo;</span><?php print $fields['field_charity_mission_short']->content; ?><span class="q-mark">&rdquo;</span></div>
 	</div><!-- /details --> 
 </div> <!-- /teaser-featured-charity --> 
