@@ -81,7 +81,9 @@
 </li>
 */
 ?>
+<td>
 <div class="teaser">
+<pre><?php //print_r($result['fields']);?></pre>
 
 	<?php if($thumbnail): ?>
 	<div class="image-icons">
@@ -91,10 +93,16 @@
 		</div>
 		
 		<div class="icons">
+			<?php if($type != 'user'): ?>
 			<div class="icon-type icons-30">
 				<div class="icon <?php print $type; ?>"><a href="#"></a></div>
 			</div>
+			<?php endif; ?>
+			<?php if($type != 'user'): ?>
 			<div class="icon-focus  icons-25">
+			<?php else: ?>
+			<div class="icon-focus  icons-30">
+			<?php endif; ?>
 				<?php if($animal_focus): ?>
 					<div class="icon animal"><a href="#"></a></div>
 				<?php endif; ?>
@@ -110,15 +118,31 @@
 	</div> <!-- /image-icons --> 
 	<?php endif; ?>
 	<div class="details">
+		<?php if($type != 'user'): ?>
 		<h1><a href="<?php print $url; ?>"><?php print $title; ?></a></h1>
+		<?php else: ?>
+		<h1><a href="<?php print $url; ?>"><?php print $profile_name; ?></a></h1>
+		<?php endif; ?>
+		<?php if($type != 'user'): ?>
 		<div class="stats">
-			<span class="date"><?php print $created; ?></span>
-			<span class="type"><a href="#"><?php print $type; ?></a></span>
-<!-- 			<span class="comments"><a href="<?php //print $node_url; ?>#comments">comments <?php //print $comment_count; ?></a></span> -->
-		</div> 
+			<span class="date"><?php print $created; ?></span> &bull;
+			<span class="type"><a href="#"><?php print $type; ?></a></span> 
+			<?php if($comment_count != 0): ?>
+				&bull;
+				<span class="comments"><a href="<?php print $url; ?>#comments">comments ( <?php print $comment_count; ?> )</a></span>				
+			<?php endif; ?>	
+		</div> 		
+		<div class="author">
+			by: <a href="/fc/<?php print $profile_type; ?>/<?php print $user_name; ?>"><?php print $profile_name; ?></a>
+		</div>
+		<?php endif; ?>
+		<?php if($profile_type == 'charity' && $type == 'user'): ?>
+			<div class="mission"><span class="q-mark">&ldquo;</span><?php print $mission_short; ?><span class="q-mark">&rdquo;</span></div>
+		<?php endif; ?>
 	</div><!-- /details --> 
+	
 </div> <!-- /teaser-small --> 
-
+</td>
 
 
 

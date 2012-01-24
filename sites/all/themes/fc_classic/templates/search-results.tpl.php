@@ -22,11 +22,13 @@
  */
 ?>
 <?php if ($search_results): ?>
- <div class="section-header">
+ <div class="page-header">
  	<h2><?php print t('Search Results'); ?></h2>
  </div>
   <div class="search-results <?php print $module; ?>-results">
-    <?php print $search_results; ?>
+  	<table cellpadding="0" cellspacing="0" width="760">
+  		<?php print $search_results; ?>
+  	</table>
   </div>
   <?php print $pager; ?>
 <?php else : ?>

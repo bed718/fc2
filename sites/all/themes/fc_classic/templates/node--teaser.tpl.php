@@ -28,9 +28,14 @@
 	<div class="details">
 		<h1><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h1>
 		<div class="stats">
-			<span class="date"><?php print $created; ?></span>
-			<span class="type"><a href="#"><?php print $type; ?></a></span>
-<!-- 			<span class="comments"><a href="<?php //print $node_url; ?>#comments">comments <?php //print $comment_count; ?></a></span> -->
-		</div> 
+			<?php print $created; ?>
+			&bull;
+			<a href="/fc/type/<?php print $type; ?>"><?php print $type; ?></a>
+		</div>
+		<div class="author">
+			by: <a href="/fc/<?php print $profile_type; ?>/<?php print $node->name; ?>"><?php print $profile_name; ?></a>
+		</div>
+		 
+		
 	</div><!-- /details --> 
 </div> <!-- /teaser-small --> 

@@ -54,6 +54,10 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 #logo a{line-height: 0; display: block;}
 
 /* SECTION HEADER */
+.page-header{ border-bottom: #5A9B9D solid 5px; margin-bottom: 10px; width: 100%;}
+	.page-header h2{font-size: 24px; font-weight: normal; color: #fff; margin: 0; padding: 0 0 5px;}
+
+/* SECTION HEADER */
 .section-header{height: 25px; border-bottom: #5A9B9D solid 5px; margin-bottom: 10px; width: 100%;}
 	.section-header h2{font-size: 16px; font-weight: normal; color: #fff; margin: 0; padding: 0 0 5px;}
 	.section-header .more-btn{position: absolute; bottom: 5px; right: 0; display: block; font-size: 10px; text-transform: uppercase; font-weight: bold;}
@@ -76,7 +80,7 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 -------------------------------------------------------------- */
 /* MAIN NAV */
 #block-nice-menus-1{position: absolute; bottom: 0; left: 185px;}
-	#block-nice-menus-1 a{line-height: 40px; height: 38px; text-transform: uppercase; font-family: 'BebasNeueRegular'; font-size: 24px; padding: 0 10px; display: block; letter-spacing: 1px;}
+	#block-nice-menus-1 a{line-height: 40px; height: 38px; text-transform: uppercase; font-family: 'BebasNeueRegular'; font-size: 24px; padding: 0 10px; display: block; letter-spacing: .5px;}
 	#block-nice-menus-1 ul{list-style: none;}
 		#block-nice-menus-1 ul li{float: left; margin-right: 8px; border: none;}
 			#block-nice-menus-1 ul li a{color: #354141; background: #fff; border-bottom: #5A9B9D solid 8px;}
@@ -104,7 +108,7 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 /* SIDEBAR
 -------------------------------------------------------------- */
 .sideleft {}
-.sideleft .main-content{width: 760px; float: left; margin-left: 20px; }
+.sideleft .main-content{width: 760px; float: left; margin-left: 20px; margin-bottom: 50px;}
 .sideleft .side-content{width: 175px; float: left;}
 
 				
@@ -130,11 +134,11 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 
 .block-facetapi li.leaf, 
 #block-apachesolr-search-sort li, 
-.block-current-search .item-list li{list-style: none; margin: 0; background: #394A4A;height: 20px; line-height: 18px; font-size: 12px; font-weight: bold;  margin-bottom: 4px;}
+.block-current-search .item-list li{list-style: none; margin: 0; background: #394A4A; min-height: 20px; line-height: 18px; font-size: 12px; font-weight: bold;  margin-bottom: 4px;}
 
 .block-facetapi li a, 
 #block-apachesolr-search-sort a, 
-.block-current-search a{ display: block;list-style: none; margin: 0; background: #394A4A;height: 20px; line-height: 18px; font-size: 12px; font-weight: bold;  margin-bottom: 4px;}
+.block-current-search a{ display: block;list-style: none; margin: 0; background: #394A4A; min-height: 20px; line-height: 18px; font-size: 12px; font-weight: bold;  margin-bottom: 4px;}
 .block-facetapi li a:hover, 
 #block-apachesolr-search-sort a:hover, 
 .block-current-search a:hover{background: #3D5354;}
@@ -142,7 +146,7 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 #block-apachesolr-search-sort li img{float: left; margin-right: 5px;  margin-left: 5px;}
 
 .block-facetapi .filter-icon,
-.block-current-search .filter-icon{background: #5A9B9D; margin-right: 5px; color: #354141; height: 20px; font-size: 14px; width: 10px; text-align: center; display: inline-block; font-weight: bold; width: 20px;}
+.block-current-search .filter-icon{background: #5A9B9D; margin-right: 5px; color: #354141; height: 20px; font-size: 14px; width: 10px; text-align: center; float: left; font-weight: bold; width: 20px;}
 
 .block-facetapi a.facetapi-active, 
 #block-apachesolr-search-sort a.active, 
@@ -157,12 +161,13 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 .filter-info div{font-size: 14px; background: #2a3131; padding: 5px; margin-bottom: 5px;}
 .filter-info img{}
 
+.filter-text{padding-left: 20px; display: block;}
 
 
 /* MAIN
 -------------------------------------------------------------- */
 .sidebar-second #main{width: 565px; float: left; z-index: 1;}
-.sidebar-first #main{width: 760px; float: left; z-index: 1}
+.sidebar-first #main{width: 760px; float: left; z-index: 1;}
 
 
 
@@ -243,17 +248,16 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 			.teaser .image-icons .icon-focus{float: right; padding-top: 5px;}
 		/* See ICONS section for teaser specific incon styles */
 /* DETAILS */				
-	.teaser .details{background: #394A4A; min-height: 50px;}
-		.teaser .details h1{padding: 5px; margin: 0; font-weight: normal; font-size: 14px;}
+	.teaser .details{background: #3D5354; min-height: 50px;}
+		.teaser  h1{ background: #394A4A; padding: 5px; margin: 0; font-weight: normal; font-size: 16px;}
 			.teaser .details h1 a{color: #fff;}
 			.teaser .details h1 a:hover{color: #5A9B9D;}
-		.teaser .details .stats{font-size: 10px; text-transform: uppercase; font-weight: bold; padding: 0 5px 5px;  font-style: italic;}
+		.teaser .details .stats{font-size: 10px; text-transform: uppercase; font-weight: bold; padding: 5px;}
 			.teaser .details .stats .date{margin-right: 5px;}
 			.teaser .details .stats .type{margin-right: 5px;}
 			.teaser .details .stats .comments{}
-		.teaser .details .charity{padding: 0 5px 5px;}
-			.teaser .details .stats .charity a{}
-			.teaser .details .stats .charity a:hover{}
+		.teaser .details .author{padding: 0 5px 5px; font-size: 12px}
+		.teaser .mission{padding: 5px;}	
 
 
 
@@ -266,7 +270,7 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 
 /* TEASER FEATURED STYLES ---------------------- */
 .teaser-featured .teaser{width: 370px;}
-	.teaser-featured .details h1{font-size: 16px;}
+	.teaser-featured .details h1{font-size: 16px; background: none;}
 	
 /* TEASER FEATURED CHARITY STYLES ---------------------- */	
 .teaser-featured-charity .teaser{width: 370px;}
@@ -277,7 +281,7 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 .teaser-featured-large{}
 	.teaser-featured-large .teaser .image-icons{margin-bottom: 0;}
 	.teaser-featured-large .teaser .details{position: absolute; background: #fff; left: 0; bottom: 50px; padding: 0 30px 0 10px;}
-	.teaser-featured-large .teaser .details h1{font-size: 20px;}
+	.teaser-featured-large .teaser .details h1{font-size: 20px; background: none;}
 		.teaser-featured-large .teaser .details h1 a{color: #354141;}
 			.teaser-featured-large .teaser .details h1 a:hover{color: #5A9B9D;}
 
@@ -291,6 +295,11 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 	.teaser-details .details .stats .type{margin-right: 5px;}
 	.teaser-details .charity-details{border-top: #354141 solid 5px; background: #3D5354; min-height: 50px;}
 	.teaser-details .charity-image{float: left;  line-height: 0; border-right: #354141 solid 5px; margin-right: 5px;}
+
+/* TEASER GRID STYLES ---------------------- */
+.grid .teaser{margin: 0 20px 30px 0;}
+
+
 
 /* ARCHIVE STYLES
 -------------------------------------------------------------- */
@@ -426,8 +435,6 @@ _____________________________________________________________________________
 	.user-header h1{height: 45px;}
 
 
-/* TEASER GRID STYLES ---------------------- */
-.grid .teaser{margin: 0 20px 20px 0;}
 
 
 /* FILTER STYLES
@@ -466,11 +473,11 @@ _____________________________________________________________________________
 /* TABLE STYLES
 -------------------------------------------------------------- */
 table{}
-tbody{}
+tbody{border: none;}
 tr{}
 td{padding: 0; vertical-align: top;}
 
-table.views-view-grid{margin-bottom: -20px;}
+table.views-view-grid{margin-bottom: -30px;}
 
 table.views-table{width: 100%;}
 table.views-table thead tr{background: #2a3131; font-size: 10px; text-transform: uppercase; border-bottom: #5A9B9D solid 5px;}

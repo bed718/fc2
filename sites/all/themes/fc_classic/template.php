@@ -31,15 +31,24 @@ function fc_classic_preprocess_page(&$vars){
 function fc_classic_preprocess_node(&$vars){
 
 	$node = $vars['node'];
-	//if($node['type'] == 'event'){
-	//kpr($node);
-	//}
-	if($vars['view_mode'] == 'fc_archive'){
-	//kpr($vars);
-		//$vars['theme_hook_suggestions'][] = 'node__archive';
-	}
+	
 	
 	if($vars['teaser']){
+		$profile = profile2_load_by_user($vars['uid']);
+		if($profile['charity']){
+			$vars['profile_type'] = t('charity');
+			$vars['profile_name'] = $profile['charity']->field_charity_name['und'][0]['value'];
+			if($profile['charity']->field_charity_profile_image['und'][0]['uri']){
+				$profile_image = $profile['charity']->field_charity_profile_image['und'][0]['uri'];
+			}
+		}else{
+			$vars['profile_type'] = t('user');
+			$vars['profile_name'] = $profile['user']->field_user_name['und'][0]['value'];
+			if($profile['user']->field_user_profile_image['und'][0]['uri']){
+				$profile_image = $profile['user']->field_user_profile_image['und'][0]['uri'];
+			}
+		}
+		
 		$vars['theme_hook_suggestions'][] = 'node__teaser';
 		
 // GET the image data
@@ -57,6 +66,10 @@ function fc_classic_preprocess_node(&$vars){
 			$image = $node->field_project_images['und'][0];
 		}elseif($vars['type'] == 'video' && isset($node->field_video_url['und'])){
 			$image = $node->field_video_url['und'][0];
+		}elseif($profile_image){
+			$image = $profile_image;
+		}else{
+			$image = 'FC_no_image.jpg';
 		}
 		
 		if(isset($image)){
@@ -89,12 +102,18 @@ function fc_classic_preprocess_node(&$vars){
 			}
 			unset($i);
 		}
+		
 		if($vars['type'] == 'event'){
 			$date = date_create($node->field_event_date['und'][0]['value']);
-			$vars['created'] = 'when: ' . date_format($date, 'n/j/y');
+			$vars['created'] = ' on: ' . date_format($date, 'n/j/y');
 		}else{
-			$vars['created'] = format_date($node->created, 'custom', 'n/j/y');
+			$vars['created'] =  format_date($node->created, 'custom', 'n/j/y');
 		}
+		
+		
+		
+		//dpm($node);	
+		//dpm($profile);	
 	
 	}else{
 		//kpr($vars);
@@ -207,7 +226,24 @@ function fc_classic_fieldset($variables) {
 }
 
 function fc_classic_preprocess_search_results(&$vars) {
-	//dpm($vars);
+	
+ 	 $chunks = array_chunk($vars['results'], 3);
+ 	 
+ 	 $vars['search_results'] = '';
+ 	 
+ 	 foreach ($chunks as $each_chunk) {
+ 	 	$vars['search_results'] .= '<tr>';
+ 	 	foreach ($each_chunk as $result) {
+	 		$vars['search_results'] .= theme('search_result', array('result' => $result, 'module' => $vars['module']));
+ 		 }
+ 	 	$vars['search_results'] .= '</tr>';
+ 	 }
+	
+	
+	//dpm($vars['search_results']);
+	
+	//$vars['result_0'] = drupal_render($vars['results']);
+	
 }
 
 function fc_classic_preprocess_search_result(&$vars) {
@@ -216,42 +252,45 @@ function fc_classic_preprocess_search_result(&$vars) {
 	
 	if($fields['zs_teaser_image']){
 		$image = $fields['zs_teaser_image'];
-	}else{
+		$thumb_style = array( 'style_name' => 'thumbnail', 'path' => $image, 'alt' => $vars['title'],);
+	}elseif($fields['zs_profile_image']){
 		$image = $fields['zs_profile_image'];
+		$thumb_style = array( 'style_name' => 'profile_thumbnail', 'path' => $image, 'alt' => $vars['title'],);
+	}else{
+		$image = 'FC_no_image.jpg';
+		$thumb_style = array( 'style_name' => 'thumbnail', 'path' => $image, 'alt' => $vars['title'],);
 	}
-	//kpr($fields['sm_vid_Focus']);
+	
+	
 	$vars['animal_focus'] = $vars['enviro_focus'] = $vars['people_focus'] = FALSE;
-		if(isset($fields['sm_vid_Focus'])){
-			$focus = $fields['sm_vid_Focus'];
+		if(isset($fields['im_field_focus'])){
+			$focus = $fields['im_field_focus'];
 			for($i = 0; $i < count($focus); $i++){
-				if($focus[$i] == 'Animal' ){
+				if($focus[$i] == 1 ){
 					$vars['animal_focus'] = TRUE;
 				}
-				if($focus[$i] == 'Environment' ){
+				if($focus[$i] == 2 ){
 					$vars['enviro_focus'] = TRUE;
 				}
-				if($focus[$i] == 'People' ){
+				if($focus[$i] == 3 ){
 					$vars['people_focus'] = TRUE;
 				}
 			}
 			unset($i);
 		}
-		
-	/*
-if($vars['result']['bundle'] == 'event'){
-			//$date = date_create($fields);
-			$vars['created'] = 'when: ' . date_format($date, 'n/j/y');
-		}else{
-			$vars['created'] = format_date($fields['created'], 'custom', 'n/j/y');
-		}
-*/
+	
 	$vars['created'] = format_date($fields['created'], 'custom', 'n/j/y');
-	$thumb_style = array( 'style_name' => 'thumbnail', 'path' => $image, 'alt' => $vars['title'],);
+	
 	$vars['thumbnail'] = theme('image_style', $thumb_style);;
 	$vars['type'] = $vars['result']['bundle'];
 	
+	$vars['profile_type'] = $vars['result']['fields']['ss_profile_type'];
+	$vars['profile_name'] = $vars['result']['fields']['ss_profile_name'];
+	$vars['user_name'] = $vars['result']['fields']['ss_user_name'];
+	$vars['comment_count'] = $vars['result']['fields']['is_comment_count'];
+	$vars['mission_short'] = $vars['result']['fields']['ss_mission_short'];
 	
-	
+	//dpm($vars['result']['fields']);
 }
 
 
