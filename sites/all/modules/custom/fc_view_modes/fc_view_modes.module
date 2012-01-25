@@ -8,4 +8,9 @@ function fc_view_modes_entity_info_alter(&$entity_info) {
     'label' => t('Archive'),
     'custom settings' => TRUE,
   );
+  
+   $entity_info['node']['view modes']['fc_teaser_detail'] = array(
+    'label' => t('Teaser - detail'),
+    'custom settings' => TRUE,
+  );
 } 

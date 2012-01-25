@@ -31,7 +31,11 @@ function fc_classic_preprocess_page(&$vars){
 function fc_classic_preprocess_node(&$vars){
 
 	$node = $vars['node'];
+	//dpm($vars);
 	
+	if($vars['view_mode'] == 'fc_teaser_detail'){
+		$vars['theme_hook_suggestions'][] = 'node__teaser_detail';
+	}
 	
 	if($vars['teaser']){
 		$profile = profile2_load_by_user($vars['uid']);

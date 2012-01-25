@@ -80,7 +80,7 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 -------------------------------------------------------------- */
 /* MAIN NAV */
 #block-nice-menus-1{position: absolute; bottom: 0; left: 185px;}
-	#block-nice-menus-1 a{line-height: 40px; height: 38px; text-transform: uppercase; font-family: 'BebasNeueRegular'; font-size: 24px; padding: 0 10px; display: block; letter-spacing: .5px;}
+	#block-nice-menus-1 a{line-height: 40px; height: 38px; text-transform: uppercase; font-family: 'BebasNeueRegular'; font-size: 20px; padding: 0 10px; display: block; letter-spacing: .5px;}
 	#block-nice-menus-1 ul{list-style: none;}
 		#block-nice-menus-1 ul li{float: left; margin-right: 8px; border: none;}
 			#block-nice-menus-1 ul li a{color: #354141; background: #fff; border-bottom: #5A9B9D solid 8px;}
@@ -288,13 +288,16 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 /* TEASER DETAILS ---------------------- */
 .teaser-details{margin-bottom: 20px}
 	.teaser-details .image-icons{width: 175px; float: left; z-index: 100; border-right: #354141 solid 5px; margin: 0;}
-	.teaser-details .details{min-height: 63px; background: #394A4A;}
+	.teaser-details .details{min-height: 120px;}
 	.teaser-details .details h1{font-size: 20px; margin-left: 180px;}
-	.teaser-details .details .stats{ margin-left: 180px;}
+	.teaser-details .details .stats{ margin-left: 180px; font-weight: normal;}
 	.teaser-details .details .stats .date{margin-right: 5px;}
 	.teaser-details .details .stats .type{margin-right: 5px;}
 	.teaser-details .charity-details{border-top: #354141 solid 5px; background: #3D5354; min-height: 50px;}
 	.teaser-details .charity-image{float: left;  line-height: 0; border-right: #354141 solid 5px; margin-right: 5px;}
+	.teaser-details .details .author{margin-left: 180px;}
+	.teaser-details.event .date{text-transform: none; font-size: 14px;}
+	.teaser.event .location{text-transform: none; font-size: 14px; color: #497274;}
 
 /* TEASER GRID STYLES ---------------------- */
 .grid .teaser{margin: 0 20px 30px 0;}
