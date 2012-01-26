@@ -31,99 +31,107 @@ function fc_classic_preprocess_page(&$vars){
 function fc_classic_preprocess_node(&$vars){
 
 	$node = $vars['node'];
-	//dpm($vars);
-	
-	if($vars['view_mode'] == 'fc_teaser_detail'){
-		$vars['theme_hook_suggestions'][] = 'node__teaser_detail';
+	//dpm($node);
+		
+	// SET VARS
+	$profile = profile2_load_by_user($vars['uid']);
+	if($profile['charity']){
+		$vars['profile_type'] = t('charity');
+		$vars['profile_name'] = $profile['charity']->field_charity_name['und'][0]['value'];
+		if($profile['charity']->field_charity_profile_image['und'][0]['uri']){
+			$profile_image = $profile['charity']->field_charity_profile_image['und'][0]['uri'];
+		}
+	}else{
+		$vars['profile_type'] = t('user');
+		$vars['profile_name'] = $profile['user']->field_user_name['und'][0]['value'];
+		if($profile['user']->field_user_profile_image['und'][0]['uri']){
+			$profile_image = $profile['user']->field_user_profile_image['und'][0]['uri'];
+		}
 	}
 	
-	if($vars['teaser']){
-		$profile = profile2_load_by_user($vars['uid']);
-		if($profile['charity']){
-			$vars['profile_type'] = t('charity');
-			$vars['profile_name'] = $profile['charity']->field_charity_name['und'][0]['value'];
-			if($profile['charity']->field_charity_profile_image['und'][0]['uri']){
-				$profile_image = $profile['charity']->field_charity_profile_image['und'][0]['uri'];
+	// GET the image data
+	if($vars['type'] == 'article' && isset($node->field_article_images['und'])){
+		$image = $node->field_article_images['und'][0]['uri'];
+	}elseif($vars['type'] == 'event' && isset($node->field_event_flyer['und'])){
+		$image = $node->field_event_flyer['und'][0]['uri'];
+	}elseif($vars['type'] == 'event' && isset($node->field_event_images['und'])){
+		$image = $node->field_event_images['und'][0]['uri'];
+	}elseif($vars['type'] == 'need' && isset($node->field_need_images['und'])){
+		$image = $node->field_need_images['und'][0]['uri'];
+	}elseif($vars['type'] == 'news' && isset($node->field_news_images['und'])){
+		$image = $node->field_news_images['und'][0]['uri'];
+	}elseif($vars['type'] == 'pictures' && isset($node->field_picture_images['und'])){
+		$image = $node->field_picture_images['und'][0]['uri'];
+	}elseif($vars['type'] == 'project' && isset($node->field_project_images['und'])){
+		$image = $node->field_project_images['und'][0]['uri'];
+	}elseif($vars['type'] == 'video' && isset($node->field_video_url['und'])){
+		$image = $node->field_video_url['und'][0]['thumbnail_path'];
+	}elseif($profile_image){
+		$image = $profile_image;
+	}else{
+		$image = 'FC_no_image.jpg';
+	}
+	
+	// GET the focus data
+	$vars['animal_focus'] = $vars['enviro_focus'] = $vars['people_focus'] = FALSE;
+	if(isset($node->field_focus)){
+		$focus = $node->field_focus['und'];
+		
+		for($i = 0; $i < count($focus); $i++){
+			if(in_array('1', $focus[$i] )){
+				$vars['animal_focus'] = TRUE;
 			}
-		}else{
-			$vars['profile_type'] = t('user');
-			$vars['profile_name'] = $profile['user']->field_user_name['und'][0]['value'];
-			if($profile['user']->field_user_profile_image['und'][0]['uri']){
-				$profile_image = $profile['user']->field_user_profile_image['und'][0]['uri'];
+			if(in_array('2', $focus[$i] )){
+				$vars['enviro_focus'] = TRUE;
+			}
+			if(in_array('3', $focus[$i] )){
+				$vars['people_focus'] = TRUE;
 			}
 		}
-		
+		unset($i);
+	}
+	
+	$event_date = date_create($node->field_event_date['und'][0]['value']);
+	$vars['event_city'] = $node->field_event_location['und'][0]['city'];
+	$vars['event_state'] = $node->field_event_location['und'][0]['province'];
+	
+	// SET SPECIFIC TEASERS
+	if($vars['teaser']){
 		$vars['theme_hook_suggestions'][] = 'node__teaser';
 		
-// GET the image data
-		if($vars['type'] == 'article' && isset($node->field_article_images['und'])){
-			$image = $node->field_article_images['und'][0];
-		}elseif($vars['type'] == 'event' && isset($node->field_event_images['und'])){
-			$image = $node->field_event_images['und'][0];
-		}elseif($vars['type'] == 'need' && isset($node->field_need_images['und'])){
-			$image = $node->field_need_images['und'][0];
-		}elseif($vars['type'] == 'news' && isset($node->field_news_images['und'])){
-			$image = $node->field_news_images['und'][0];
-		}elseif($vars['type'] == 'pictures' && isset($node->field_picture_images['und'])){
-			$image = $node->field_picture_images['und'][0];
-		}elseif($vars['type'] == 'project' && isset($node->field_project_images['und'])){
-			$image = $node->field_project_images['und'][0];
-		}elseif($vars['type'] == 'video' && isset($node->field_video_url['und'])){
-			$image = $node->field_video_url['und'][0];
-		}elseif($profile_image){
-			$image = $profile_image;
-		}else{
-			$image = 'FC_no_image.jpg';
-		}
+		$thumb_style = array( 'style_name' => 'teaser_small', 'path' => $image, 'alt' => $vars['title'],);
+		if($thumb_style){$vars['thumbnail'] = theme('image_style', $thumb_style);}
 		
-		if(isset($image)){
-			if($vars['type'] == 'video'){
-				$thumb_style = array( 'style_name' => 'teaser_small', 'path' => $image['thumbnail_path']);
-			}else{
-				$thumb_style = array( 'style_name' => 'teaser_small', 'path' => $image['uri'], 'alt' => $image['alt'], 'title' => $image['title'],);
-			}
-			
-			$vars['thumbnail'] = theme('image_style', $thumb_style);
-		}else{
-			$vars['thumbnail'] = FALSE;
-		}
-		
-// GET the focus data
-		$vars['animal_focus'] = $vars['enviro_focus'] = $vars['people_focus'] = FALSE;
-		if(isset($node->field_focus)){
-			$focus = $node->field_focus['und'];
-			
-			for($i = 0; $i < count($focus); $i++){
-				if(in_array('1', $focus[$i] )){
-					$vars['animal_focus'] = TRUE;
-				}
-				if(in_array('2', $focus[$i] )){
-					$vars['enviro_focus'] = TRUE;
-				}
-				if(in_array('3', $focus[$i] )){
-					$vars['people_focus'] = TRUE;
-				}
-			}
-			unset($i);
-		}
-		
-		if($vars['type'] == 'event'){
-			$date = date_create($node->field_event_date['und'][0]['value']);
-			$vars['created'] = ' on: ' . date_format($date, 'n/j/y');
-		}else{
-			$vars['created'] =  format_date($node->created, 'custom', 'n/j/y');
-		}
-		
-		
-		
-		//dpm($node);	
-		//dpm($profile);	
-	
-	}else{
-		//kpr($vars);
+		$vars['created'] =  format_date($node->created, 'custom', 'n/j/y');
+		$vars['event_date'] = date_format($event_date, 'n/j/y - g:iA');
 	}
-	//$profile = profile2_load_by_user($vars['uid']);
-	//kpr($profile);
+	
+	if($vars['view_mode'] == 'fc_teaser_detail'){
+		$vars['theme_hook_suggestions'][] = 'node__teaser';
+		
+		$thumb_style = array( 'style_name' => 'teaser_small', 'path' => $image, 'alt' => $vars['title'],);
+		if($thumb_style){$vars['thumbnail'] = theme('image_style', $thumb_style);}
+		
+		$vars['created'] =  format_date($node->created, 'custom', 'n/j/y');
+		$vars['event_date'] = date_format($event_date, 'F dS Y - g:iA');
+		
+		$vars['teaser_class'] = 'teaser-details';
+		//dpm($node);
+	}
+	
+	if($vars['view_mode'] == 'fc_teaser_featured'){
+		$vars['theme_hook_suggestions'][] = 'node__teaser';
+		
+		$thumb_style = array( 'style_name' => 'teaser_large', 'path' => $image, 'alt' => $vars['title'],);
+		if($thumb_style){$vars['thumbnail'] = theme('image_style', $thumb_style);}
+		
+		$vars['created'] =  format_date($node->created, 'custom', 'n/j/y');
+		$vars['event_date'] = date_format($event_date, 'F dS Y - g:iA');
+		
+		$vars['teaser_class'] = 'teaser-featured';
+		
+	}
+	
 	
 }
 
@@ -148,7 +156,6 @@ function fc_classic_preprocess_comment(&$vars){
 	$vars['submitted'] = t('From ') . $vars['author'] . t(' on ') . $vars['created'];
 	$vars['body'] = render($vars['comment']->comment_body['und'][0]['safe_value']);
 	$vars['links'] = render($vars['content']['links']);
-	//kpr($vars);
 }
 
 
