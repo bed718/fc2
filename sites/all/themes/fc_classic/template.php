@@ -166,11 +166,21 @@ function fc_classic_theme(&$existing, $type, $theme, $path) {
 		'render element' => 'form',
 	);
 	
+	$hooks['user_login'] = array(
+		'template' => 'templates/user-login',
+		'render element' => 'form',
+	);
+	
+	$hooks['user_pass'] = array(
+		'template' => 'templates/user-pass',
+		'render element' => 'form',
+	);
+	
 	return $hooks;
 }
 
 function fc_classic_preprocess_user_login_block(&$vars) {
-	//kpr($vars);
+	//kpr($vars['form']['actions']['submit']);
 	
 	$vars['form']['name']['#title'] = t('Email');
 	
@@ -181,9 +191,13 @@ function fc_classic_preprocess_user_login_block(&$vars) {
 	$vars['rendered'] = drupal_render_children($vars['form']);
 }
 
+
+
+
 function fc_classic_preprocess_user_register(&$vars) {
-	
+	//kpr($vars['form']);
 	if($vars['form']['profile_user']){
+		$vars['reg_type'] = t('user');
 		$vars['form']['account']['name']['#description'] = t('This will be the path to your personal profile. <br />eg. http://freshcharities.com/user/[ your_custom_url ]');
 		unset($vars['form']['profile_user']['field_user_profile_image']);
 		$vars['form']['profile_user']['field_uesr_zip']['und'][0]['postal_code']['#title'] = t('Zipcode');
@@ -191,10 +205,15 @@ function fc_classic_preprocess_user_register(&$vars) {
 		$vars['profile'] = drupal_render($vars['form']['profile_user']);
 
 	}elseif($vars['form']['profile_charity']){
+		$vars['reg_type'] = t('charity');
 		$vars['form']['account']['name']['#description'] = t('This will be the path to the charity profile. <br />eg. http://freshcharities.com/charity/[ your_custom_url ]');
 		unset($vars['form']['profile_charity']['field_charity_mission_full']['und'][0]['format']);
 		$vars['profile'] = drupal_render($vars['form']['profile_charity']);
 	}
+	unset($vars['form']['profile_charity']['field_charity_donation']);
+	$vars['form']['actions']['submit']['#value'] = t('Sign me up!');
+	
+	$vars['form']['captcha']['#name'] = t('Just making sure you are not a robot...');
 	
 	$vars['captcha'] = drupal_render($vars['form']['captcha']);
 	$vars['submit'] = drupal_render($vars['form']['actions']['submit']);

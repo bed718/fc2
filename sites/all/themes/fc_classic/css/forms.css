@@ -38,10 +38,21 @@ textarea:focus{background: #fff; color: #354141}
 .form-required{color: #5A9B9D;}
 .form-item{margin-bottom: 10px;}
 
+.form-item input.error,
+.form-item textarea.error, 
+.form-item select.error{border: #ec7d7d solid 3px;}
+
 
 /* SUBMIT BTN */
-input[type='submit']{font-family: 'BebasNeueRegular';	font-size: 24px; height: 36px; line-height: 36px; background: #fff; padding: 0 10px; color: #354141; text-transform: uppercase; border: none;}
-input[type='submit']:hover{background: #5A9B9D; color: #fff;}
+input[type='submit'],
+.checkout-buttons .checkout-cancel, 
+.checkout-buttons .checkout-back{font-family: 'BebasNeueRegular';	font-size: 24px; height: 36px; line-height: 36px; background: #fff; padding: 0 10px; color: #354141; text-transform: uppercase; border: none;}
+form input[type='submit']:hover,
+.checkout-buttons .checkout-cancel:hover, 
+.checkout-buttons .checkout-back:hover{background: #5A9B9D; color: #fff; text-decoration: none;}
+form .submit{text-align: right;}
+
+
 
 .image-widget input[type='submit']{font-size: 18px; height: 20px; line-height: 20px; margin-left: 10px;}
 .field-type-image .description{display: none;}
@@ -66,7 +77,7 @@ label.option{float: none;  color: #5A9B9D; font-size: 12px; font-weight: bold;}
 
 
 
-#user-register-form{width: 565px;}
+#user-register-form{}
 
 
 /* LOCATION FORM STYLES
@@ -91,17 +102,36 @@ label.option{float: none;  color: #5A9B9D; font-size: 12px; font-weight: bold;}
 /* SEARCH FORM STYLES
 -------------------------------------------------------------- */
 .search-form{background: #394A4A; padding: 10px;}
-.search-form .form-submit{background: #fff; float: left;}
-.search-form .form-submit:hover{background: #5A9B9D;}
-.search-form input[type="text"]{width: 200px;}
+.search-form .form-submit,
+#search-block-form .form-submit{background: #fff; float: left;}
+.search-form .form-submit:hover,
+#search-block-form .form-submit:hover{background: #5A9B9D;}
+.search-form input[type="text"],
+#search-block-form input[type="text"]{width: 200px;}
 .search-form .form-item-keys{float: left; margin-right: 5px; margin-bottom: 0;}
 .search-form .form-item-keys label{float: left; width: auto; text-align: left; font-family: 'BebasNeueRegular';	font-size: 25px; height: 36px; line-height: 36px; font-weight: normal; letter-spacing: 1px;}
 .search-form .form-item-retain-filters,
 .form-item-apachesolr-search-retain-filters{clear: both;   font-size: 10px; padding-left: 10px; margin-bottom: 0; height: 36px; line-height: 30px;}
 
+#block-search-form{position: absolute; bottom: 0; right: 10px;}
+#search-block-form input[type="text"]{width: 100px; background: #3D5354; border-color: #497274; margin-right: 5px;}
+#search-block-form input[type="text"]:focus{background: #fff; color: #354141}
+
 .spelling-suggestions{background: #3D5354; padding: 5px; margin-top: -10px; margin-bottom: 20px;}
 .spelling-suggestions dl{margin-bottom: 0;}
 .spelling-suggestions dt{float: left;  margin-right: 10px;}
+
+.form-item-search-block-form{float: left;}
+
+/* CART FORM STYLES
+-------------------------------------------------------------- */
+#edit-buttons{background: none;}
+#edit-buttons{font-size: 14px; font-weight: bold; text-transform: uppercase;}
+#edit-continue{margin-right: 10px;}
+#edit-cancel{margin-left: 10px;}
+#edit-checkout{margin-left: 10px;}
+
+.commerce-order-handler-area-order-total .commerce-price-formatted-components tr.component-type-commerce-price-formatted-amount{font-size: 18px; padding: 10px}
 
 
 /* USERNAME FORM STYLES
@@ -142,6 +172,24 @@ html.js input.throbbing{}
 
 .vertical-tabs,
 .vertical-tabs-panes fieldset{}
+
+
+
+/* REGISTRATION STYLES
+-------------------------------------------------------------- */
+.user-register{}
+.user-register .main-focus{width: 175px; margin-bottom: 30px;}
+.user-register .dark-box{margin-bottom: 30px; text-align: center;}
+
+.user-register .submit input[type='submit']{font-size: 60px; height: 70px; line-height: 70px; padding: 0 20px;}
+.user-register .main-content{padding-top: 50px;}
+
+#edit-profile-charity-field-charity-donation{display: none;}
+
+.user-login fieldset{padding-bottom: 10px}
+.user-login #edit-actions,
+.user-pass #edit-actions{text-align: right; padding-right: 210px}
+
 
 
 

@@ -43,6 +43,8 @@ h1 a:hover, h2 a:hover{color: #5A9B9D;}
 .panel-separator{height: 30px;}
 ul, li, .item-list ul{margin: 0; padding: 0;}
 
+.dark-box{background: #2a3131; padding: 5px;}
+
 /* HEADER STYLES
 -------------------------------------------------------------- */
 #main-header{background: #5A9B9D; z-index: 100;}
@@ -95,7 +97,7 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 
 
 /* USER NAV */
-#user-nav{position: absolute; top: 0; right: 0; z-index: 100;}
+#user-nav{position: absolute; top: 0; right: 5px; z-index: 100;}
 	#user-nav ul{position: relative;}
 	#user-nav li{float: left; margin-right: 5px; position: relative;}
 	#user-nav a{background: #497274; color: #fff; display: block; font-size: 10px; text-transform: uppercase; font-weight: bold; height: 20px; padding: 0 5px; line-height: 20px;}
@@ -109,8 +111,11 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 -------------------------------------------------------------- */
 .sideleft {}
 .sideleft .main-content{width: 760px; float: left; margin-left: 20px; margin-bottom: 50px;}
-.sideleft .side-content{width: 175px; float: left;}
+.sideleft .side-content{width: 175px; float: left; margin-bottom: 50px;}
 
+.sideleft-big {}
+.sideleft-big .main-content{width: 565px; float: left; margin-left: 20px; margin-bottom: 50px;}
+.sideleft-big .side-content{width: 370px; float: left; margin-bottom: 50px;}
 				
 /* SEARCH
 -------------------------------------------------------------- */
@@ -120,6 +125,7 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 
 .search-results{width: 780px;}
 .search-results .teaser{width: 240px; float: left; margin-right: 20px; margin-bottom: 20px;}
+
 
 
 /* FILTER STYLES
@@ -222,7 +228,8 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 .side-content .user-login-block .signup-btns .or{height: 25px; width: 25px; line-height: 25px; font-size: 10px; margin: 2px -8px;}
 .side-content .user-login-block .footer{text-align: center;}
 
-.no-content{background: #394A4A; padding: 65px 0; text-align: center; margin-bottom: 30px;}
+.no-content,
+.cart-empty-page{background: #394A4A; padding: 65px 0; text-align: center; margin-bottom: 30px;}
 
 /* SECTION STYLES
 -------------------------------------------------------------- */
@@ -417,10 +424,11 @@ _____________________________________________________________________________
 #quick-facts .body{height: 150px; overflow: hidden; display: block;}
 #quick-facts ul li{min-height: 25px; font-size: 10px; background: #374a4a; line-height: 25px; text-transform: uppercase; font-weight: bold; margin-bottom: 5px; padding: 0 10px;}
 #quick-facts ul li span.label{color: #fff; float: left; width: 80px; }
+#quick-facts ul li div.field-content{padding-left: 85px;}
 #quick-facts .icons a{margin-top: -5px;}
 #quick-facts .icon{float: left;}
 #quick-facts .more-toggle{margin: 0;}
-#quick-facts li .vcard{line-height: normal; padding: 4px 0 4px 80px;}
+#quick-facts li .vcard{line-height: normal; padding: 5px 0;}
 
 .donation-holder{text-align: right; display: none;}
 .donation-block{background: #2a3131; padding: 10px; display: inline-block;}
@@ -439,8 +447,11 @@ _____________________________________________________________________________
 .user-header{}
 	.user-header h1{height: 45px;}
 
-
-
+/* LIST STYLES
+-------------------------------------------------------------- */
+.list-med{margin-left: 20px; line-height: 16px;}
+.list-med li{list-style: disc; color: #5A9B9D; font-size: 20px; margin-bottom: 20px; }
+.list-med li span{color: #AFD5D6; font-size: 16px;}
 
 /* FILTER STYLES
 -------------------------------------------------------------- */
@@ -481,6 +492,7 @@ table{}
 tbody{border: none;}
 tr{}
 td{padding: 0; vertical-align: top;}
+tr.even, tr.odd{background: none; border: none;}
 
 table.views-view-grid{margin-bottom: -30px;}
 
@@ -492,14 +504,23 @@ table.views-table tr.even{background: #394A4A;}
 
 td.views-field-line-item-title{font-size: 16px;}
 .commerce-line-item-views-form input.delete-line-item {font-size: 16px;}
-.line-item-summary{font-size: 18px; color: #fff; padding: 10px; background: #2a3131; float: right; margin: 0;}
+.line-item-summary{font-size: 18px; color: #fff; padding: 10px; background: #2a3131; float: right; margin: 0 0 10px;}
 .commerce-line-item-actions{clear: both;}
+
+
+/* CART STYLES
+-------------------------------------------------------------- */
+.cart-block-small{position: absolute; top: 30px; right: 0; background: #394A4A; padding: 5px 10px; font-weight: bold;}
 
 
 /* MESSAGE STYLES
 -------------------------------------------------------------- */
 div.messages{padding: 10px; border: none;}
+div.messages a{color: #fff;}
 div.status{background: #5A9B9D none;}
+div.error, table tr.error{background: #783d3d; color: #ec7d7d;}
+div.error{background-color: none;}
+
 
 
 /* FEATURED ARTICLE STYLES
