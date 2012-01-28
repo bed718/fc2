@@ -51,6 +51,6 @@
 	<?php endif; ?>
 	
 	<?php if($fields['field_focus']->content): ?>
-	   <div class="tags">Tags <?php print $fields['field_focus']->content; ?></div>
+	   <div class="tags">Tags <?php print $fields['field_focus']->content; ?> <?php print $fields['field_cause']->content; ?></div>
 	<?php endif; ?>
 </div>

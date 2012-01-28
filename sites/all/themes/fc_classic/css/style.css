@@ -263,7 +263,7 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 			.teaser .details .stats .date{margin-right: 5px;}
 			.teaser .details .stats .type{margin-right: 5px;}
 			.teaser .details .stats .comments{}
-		.teaser .details .author{padding: 0 5px 5px; font-size: 12px}
+		.teaser .details .author{padding: 0 5px 5px; font-size: 12px; font-weight: bold;}
 		.teaser .mission{padding: 5px;}	
 
 
@@ -328,6 +328,7 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 .service-links{padding-top: 20px;}
 
 
+
 /* FULL STYLES
 -------------------------------------------------------------- */
 .full{}
@@ -337,6 +338,9 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 		.service-links img{width: 30px; height: auto;}
 		
 	.full .video{margin-bottom: 10px;}	
+	
+	.full .author{background: #3D5354; padding: 5px; margin: -10px 0 10px; font-weight: bold; line-height: 24px; height: 25px;}
+	.full .service-links{float: right; padding: 0; margin: 0; width: 335px;}
 	
 .full.pictures{}
 	.full .images{ margin-bottom: 20px; background: #394A4A; padding: 10px 0 0 10px;}
@@ -364,9 +368,19 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 .full .image-holder{float: right; width: 370px; margin-left: 20px; z-index: 100;}
 .full .image-holder h2{font-size: 10px; text-transform: uppercase; line-height: 10px; margin-bottom: 10px; font-weight: bold;}
 	
+	
+#imageData #imageDetails{float: none; padding: 5px; background: #3D5354; font-family: 'Cantarell', arial, sans-serif; width: auto; margin-bottom: 10px;}
+#imageData #numberDisplay{padding: 5px 0 0; text-transform: uppercase; }
+#imageData #caption{font-size: 14px; font-weight: normal;}
+#imageData #numberDisplay{font-size: 10px; color: #fff; font-weight: bold;}
+#imageDataContainer #bottomNav{position: absolute; top: -520px; right: 0; z-index: 100000;}
+#imageDataContainer #bottomNavClose{margin: 0; background-color: #fff !important; }
+
+
+	
 /* TAG STYLES
 -------------------------------------------------------------- */
-.tags{font-size: 12px; text-transform: uppercase; background: #394A4A; padding: 5px; margin-bottom: 10px; color: #fff; }
+.tags{font-size: 12px; text-transform: uppercase; background: #394A4A; padding: 5px; margin-bottom: 10px; color: #fff; clear: both;}
 .tags a{margin-left: 10px;}
 
 	
@@ -516,7 +530,7 @@ td.views-field-line-item-title{font-size: 16px;}
 /* MESSAGE STYLES
 -------------------------------------------------------------- */
 div.messages{padding: 10px; border: none;}
-div.messages a{color: #fff;}
+div.messages a{/* color: #fff; */}
 div.status{background: #5A9B9D none;}
 div.error, table tr.error{background: #783d3d; color: #ec7d7d;}
 div.error{background-color: none;}

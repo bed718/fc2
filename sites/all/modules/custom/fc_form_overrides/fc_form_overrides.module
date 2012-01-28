@@ -43,8 +43,25 @@ function fc_form_overrides_form_alter(&$form, $form_state, $form_id){
 			$form['actions']['submit']['#type'] = 'image_button';
 			$form['actions']['submit']['#src'] = '/fc/' . path_to_theme() . '/images/FC_search_btn.png';
 		break;
+		
+		case 'comment_node_article_form':
+		case 'comment_node_news_form':
+		case 'comment_node_need_form':
+		case 'comment_node_project_form':
+		case 'comment_node_pictures_form':
+		case 'comment_node_videos_form':
+		case 'comment_node_event_form':
+			$form['actions']['submit']['#value'] = t('Post Comment');
+			$form['comment_body']['#after_build'][] = 'fc_form_overrides_customize_comment_form';			
+		break;
+		
 	}
 	
+}
+
+function fc_form_overrides_customize_comment_form(&$form){
+	$form[LANGUAGE_NONE][0]['format']['#access'] = FALSE; 
+	return $form;
 }
 
 function fc_form_overrides_form_profile2_form_alter(&$form, &$form_state) {
