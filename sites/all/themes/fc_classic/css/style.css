@@ -31,7 +31,7 @@ a{color: #5A9B9D; text-decoration: none;}
 a:hover{color: #fff;}
 .image a{line-height: 0; display: block;}
 
-p{font-size: 16px; line-height: 20px; font-weight: normal;}
+p{font-size: 14px; line-height: 20px; font-weight: normal;}
 
 #container{width: 955px; padding:40px 10px 0; margin: 0 auto;z-index: 1; }
 
@@ -74,6 +74,8 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 
 .pane-title, h2.title{height: 25px; border-bottom: #5A9B9D solid 5px; margin-bottom: 10px; font-size: 20px; font-weight: normal; color: #fff;}
 
+.header-info{background: #3D5354; padding: 10px; font-size: 10px; margin-top: -10px; margin-bottom: 20px;} 
+.header-info p{font-size: 16px; line-height: 24px; margin: 0;}
 
 #skip{display: none;}
 
@@ -104,7 +106,7 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 	#user-nav a:hover{background: #fff; color: #354141;}
 	
 	#user-nav ul ul{ position: absolute; top: 20px; left: 0; display: none;}
-		#user-nav ul ul li{float: none; display: block; width: 130px; border-top: #415858 solid 2px;}
+		#user-nav ul ul li{float: none; display: block; width: 150px; border-top: #415858 solid 2px;}
 
 
 /* SIDEBAR
@@ -263,7 +265,7 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 			.teaser .details .stats .date{margin-right: 5px;}
 			.teaser .details .stats .type{margin-right: 5px;}
 			.teaser .details .stats .comments{}
-		.teaser .details .author{padding: 0 5px 5px; font-size: 12px; font-weight: bold;}
+		.teaser .details .author{padding: 0 5px 5px; font-size: 10px; font-weight: bold; text-transform: uppercase;}
 		.teaser .mission{padding: 5px;}	
 
 
@@ -297,7 +299,7 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 	.teaser-details .image-icons{width: 175px; float: left; z-index: 100; border-right: #354141 solid 5px; margin: 0;}
 	.teaser-details .details{min-height: 120px;}
 	.teaser-details .details h1{font-size: 20px; margin-left: 180px; min-height: 50px;}
-	.teaser-details .details .stats{ margin-left: 180px; font-weight: normal;}
+	.teaser-details .details .stats{ margin-left: 180px;}
 	.teaser-details .details .stats .date{margin-right: 5px;}
 	.teaser-details .details .stats .type{margin-right: 5px;}
 	.teaser-details .charity-details{border-top: #354141 solid 5px; background: #3D5354; min-height: 50px;}
@@ -348,7 +350,7 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 
 .full.event{}
 	.full.event .info{padding-bottom: 20px;}
-	.full.event .info li{ background: #374a4a; padding: 5px; margin-bottom: 5px;}
+	.full.event .info li{ background: #2a3131; padding: 5px; margin-bottom: 2px;}
 	.full.event .info h2{font-size: 10px; color: #fff; margin: 0;  font-weight: bold; text-transform: uppercase; display: inline-block; float: left; width: 80px; }
 	.full.event .date, .full.event .type, .full.event .location{ font-size: 16px; padding-left: 100px;} 
 	.full.event .rsvp{font-size: 10px; text-transform: uppercase; font-weight: bold; padding-top: 5px; color: #fff;}
@@ -365,7 +367,7 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 		.full.need .details span{color: #fff; text-transform: uppercase; padding: 0; width: 100px; float: left; font-weight: bold; font-size: 10px;}
 	.full.need .body{clear: none;}
 	
-.full .image-holder{float: right; width: 370px; margin-left: 20px; z-index: 100;}
+.full .image-holder{z-index: 100; margin-bottom: 10px}
 .full .image-holder h2{font-size: 10px; text-transform: uppercase; line-height: 10px; margin-bottom: 10px; font-weight: bold;}
 	
 	
@@ -496,7 +498,7 @@ _____________________________________________________________________________
 .next-btn{right: -15px;}
 .last-btn{left: -15px;}
 
-.event-follow-btn{}
+.event-follow-btn{text-align: right;}
 .default-btn a{font-family: 'BebasNeueRegular';	font-size: 24px; height: 36px; line-height: 36px; background: #fff; padding: 0 10px; color: #354141; text-transform: uppercase; border: none;}
 .default-btn a:hover{background: #5A9B9D; color: #fff;}
 	
@@ -525,6 +527,8 @@ td.views-field-line-item-title{font-size: 16px;}
 /* CART STYLES
 -------------------------------------------------------------- */
 .cart-block-small{position: absolute; top: 30px; right: 0; background: #394A4A; padding: 5px 10px; font-weight: bold;}
+#views-form-commerce-cart-form-default input[type='text']{width: 20px; text-align: center;}
+
 
 
 /* MESSAGE STYLES
@@ -561,12 +565,19 @@ _____________________________________________________________________________
 
 .page-our-mission .image{float: left; margin-right: 20px;}
 
+/* ADD CONTENT
+-------------------------------------------------------------- */
+.create-page .details{margin-bottom: 20px;}
+.create-page .icon{float: left; margin-right: 20px;;}
+.create-page h2{height: 30px; line-height: 30px; background: #394A4A;  padding-left: 10px;	margin-left: 120px}
+.create-page p{background: #3D5354; padding: 10px;	margin-left: 120px}
+
 
 /* COMMENT STYLES
 -------------------------------------------------------------- */
 .comment{background: #394A4A; padding: 10px; margin-bottom: 20px;}
 	.comment .header{margin-bottom: 5px; border-bottom: #354141 solid 2px; padding-bottom: 5px;}
-	.comment h2{margin-bottom: 5px;	}
+	.comment h2{margin-bottom: 5px;}
 	.comment .image{float: left; margin-right: 5px; }
 	.comment .body{clear: both;margin-bottom: 5px; border-bottom: #354141 solid 2px; padding-bottom: 5px;}
 	.comment .links{text-align: right;}
@@ -679,6 +690,26 @@ _____________________________________________________________________________
 	.icons-30 .twitter a:hover{background-position: -442px -112px;}
 	.icons-30 .flickr a:hover{background-position: -462px -112px;}
 	.icons-30 .youtube a:hover{background-position: -504px -112px;}
+
+
+/* 100px ---------------------- */
+.icons-100{}
+.icons-100 .icon a{width: 100px; height: 100px; background: url(../images/FC_create_icons.png) no-repeat; display: block; line-height: 0; z-index: 100;}
+	.icons-100 .picture a{background-position: -400px 0;}
+	.icons-100 .video a{background-position: -300px 0px;}
+	.icons-100 .news a, .icons-100 .article a{background-position:0 0;}
+	.icons-100 .project a{background-position: -200px 0px;}
+	.icons-100 .event a{background-position: -100px 0;}
+	.icons-100 .need a{background-position: -500px 0px;}
+
+	.icons-100 .picture a:hover{background-position: -400px -100px;}
+	.icons-100 .video a:hover{background-position: -300px -100px;}
+	.icons-100 .news a:hover, .icons-100 .article a:hover{background-position:  0 -100px;}
+	.icons-100 .project a:hover{background-position: -200px -100px;}
+	.icons-100 .event a:hover{background-position: -100px -100px;}
+	.icons-100 .need a:hover{background-position: -500px -100px;}
+
+
 	
 /* 52px ---------------------- */
 .icons-52{}

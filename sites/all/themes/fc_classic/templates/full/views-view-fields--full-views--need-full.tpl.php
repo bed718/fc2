@@ -1,4 +1,8 @@
 <div class="full need">
+	  <div class="author clearfix">
+		<a href="/type/need">Need</a> posted on: <?php print $fields['created']->content; ?>
+		<div class="service-links clearfix"><?php print $fields['service_links']->content; ?></div>
+	</div>
 	   <div class="details">
 	   	<?php if($fields['body']->content): ?>
 	   		<div><span>Type:</span> <?php print $fields['field_need_type']->content; ?></div>

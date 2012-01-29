@@ -1,4 +1,8 @@
 <div class="full video">
+	<div class="author clearfix">
+		<a href="/type/video">Video</a> posted on: <?php print $fields['created']->content; ?>
+		<div class="service-links clearfix"><?php print $fields['service_links']->content; ?></div>
+	</div>
 	<?php if($fields['field_video_url']->content): ?>
 	   <div class="video"><?php print $fields['field_video_url']->content; ?></div>
 	<?php endif; ?>

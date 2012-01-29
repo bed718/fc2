@@ -1,6 +1,6 @@
 <div class="full news">
 	<div class="author clearfix">
-		Posted on: <?php print $fields['created']->content; ?>
+		<a href="/type/news">News</a> posted on: <?php print $fields['created']->content; ?>
 		<div class="service-links clearfix"><?php print $fields['service_links']->content; ?></div>
 	</div>
 	<?php if($fields['body']->content): ?>

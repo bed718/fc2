@@ -64,21 +64,21 @@ STANDARDS
   background-color: white;
 }
 .calendar-calendar th {
-  color: #fff;
-  background-color: #ccc;
+  color: #394A4A;
+  background-color: #3D5354;
   text-align: center;
   margin: 0;
 }
 .calendar-calendar th a {
   font-weight: bold;
-  color: #fff;
-  background-color: #ccc;
+  color: #394A4A;
+  background-color: #3D5354;
 }
 .calendar-calendar td {
   width: 12%; /* 14% is about 1/7 of total table width */
   min-width: 12%;
-  border: 1px solid #ccc;
-  color: #777;
+  border: none;
+  color: #fff;
   text-align: right;
   vertical-align: top;
   margin: 0;
@@ -161,9 +161,8 @@ STANDARDS
   text-align: center;
   padding: 0.125em 0.25em 0 0.25em;
   margin: 0;
-  background-color: #f3f3f3;
-  border: 1px solid gray;
-  border-width: 0 0 1px 1px;
+  background-color: #3D5354;
+  border: none;
   clear:both;
   width:1.5em;
 }
@@ -172,8 +171,8 @@ STANDARDS
  * individual node container
  */
 .calendar-calendar div.calendar {
-  background-color: #fff;
-  border: solid 1px #ddd;
+  background-color: #394A4A;
+  border: none;
   text-align: left;
   margin:0 .25em .25em 0;
   width: 96%;
@@ -255,7 +254,7 @@ table .mini-day-on a {
   width: 100%;
 }
 table.calendar-legend {
-  background-color: #ccc;
+  background-color: #3D5354;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -297,7 +296,7 @@ table.calendar-legend tr.even .stripe {
   font-size: 1em;
 }
 .calendar-calendar td.calendar-agenda-items {
-  border: 1px #333 dotted;
+  border: none;
   text-align: left;
 }
 .calendar-calendar td.calendar-agenda-items div.calendar {
@@ -310,7 +309,7 @@ table.calendar-legend tr.even .stripe {
   text-align: center;
   vertical-align: middle;
   padding: 1em 0;
-  background-color: #fff;
+  background-color: #394A4A;
 }
 
 /**
@@ -340,14 +339,14 @@ table.calendar-legend tr.even .stripe {
 }
 
 .calendar-calendar div.date-nav {
-  background-color: #ccc;
-  color: #777;
+  background-color: #3D5354;
+  color: #fff;
   width: auto;
-  border: 1px solid #ccc;
+  border: none;
 }
 .calendar-calendar div.date-nav a,
 .calendar-calendar div.date-nav h3 {
-  color: #777;
+  color: #fff;
 }
 .calendar-calendar th.days {
   background-color: #497274;
@@ -356,22 +355,22 @@ table.calendar-legend tr.even .stripe {
   border: none;
 }
 .calendar-calendar td.empty {
-  background: #ccc;
-  border-color: #ccc;
+  background: #3D5354;
+  border-color: none;
 }
 .calendar-calendar table.mini td.empty {
   background: #394A4A;
-  border-color: #fff;
+  border-color: none;
 }
 .calendar-calendar td div.day {
-  border: 1px solid #ccc;
+  border: none;
   border-top: none;
   border-right: none;
   margin-bottom: 2px;
 }
 .calendar-calendar td .inner div,
 .calendar-calendar td .inner div a {
-  background: #eee;
+  background: #3D5354;
 }
 
 /**
@@ -386,13 +385,13 @@ table.calendar-legend tr.even .stripe {
 .calendar-calendar td .inner div.calendar div,
 .calendar-calendar td .inner div.calendar div a {
   border: none;
-  background: #ffc;
+  background: #3D5354;
   padding: 0 2px;
 }
 .calendar-calendar td .inner div.calendar div.calendar-more,
 .calendar-calendar td .inner div.calendar div.calendar-more a {
   color: #444;
-  background: #fff;
+  background: #394A4A;
   text-align: right;
 }
 .calendar-calendar td .inner .view-field,
@@ -413,10 +412,10 @@ table.calendar-legend tr.even .stripe {
 .calendar-calendar tr td.today,
 .calendar-calendar tr.odd td.today,
 .calendar-calendar tr.even td.today {
-  background-color: #C3D6E4;
+  background-color: #3D5354;
 }
 .calendar-calendar td .inner div.calendar div div.view-data-node-data-field-date-field-date-value {
-  border-bottom: 1px solid #ccc;
+  border-bottom: none;
 }
 
 /**
@@ -437,10 +436,10 @@ table.calendar-legend tr.even .stripe {
 .calendar-calendar table.mini td.has-events div.mini-day-on{height: 45px;}
 .calendar-calendar table.mini td.has-events a{display: block; height: 100%; background: #5A9B9D; color: #394A4A; text-decoration: none;}
 
-.view .date-nav-wrapper .date-nav{padding: 0; margin: 0; min-height: 25px; background: #5A9B9D; color: #fff; position: relative;}
+.view .date-nav-wrapper .date-nav{padding: 0; margin: 0; min-height: 25px; background: #5A9B9D; color: #394A4A; position: relative;}
 .date-heading{height: 25px; line-height: 25px;}
 .view .date-nav-wrapper .date-heading h3{margin: 0; line-height: 25px;}
-.date-heading a{color: #fff; font-size: 14px; display: block;}
+.date-heading a{color: #394A4A; font-size: 14px; display: block;}
 
 .view-calendar .item-list .pager {
     background: none repeat scroll 0 0 #394A4A;
@@ -468,12 +467,13 @@ table.calendar-legend tr.even .stripe {
     top: 0;
     z-index: 1;
     line-height: 20px;
-    width: 25px;
+    width: 60px;
     background: #5A9B9D;
 margin: 0;
 }
 .view .date-nav-wrapper .date-next a, 
 .view .date-nav-wrapper .date-prev a{margin: 0; display: block; height: 25px;}
+
 .view .date-nav-wrapper .date-next{
     background: none;
     border-radius: 0;
@@ -488,10 +488,54 @@ margin: 0;
     top: 0;
     z-index: 1;
     line-height: 8px;
-    width: 25px;
+    width: 60px;
     background: #5A9B9D;
 margin: 0;
 }
 
+.view.view-display-id-block_1 .date-nav-wrapper .date-prev,
+.view.view-display-id-block_1 .date-nav-wrapper .date-next
+{width: 25px}
 
+.calendar-calendar .month-view .full td.single-day .calendar-empty, .calendar-calendar .month-view .full td.single-day.empty, .calendar-calendar .month-view .full td.date-box.empty{border-right: #354141 solid 4px;  background: #364343;}
+
+.calendar-calendar .month-view .full td.single-day.empty {border-bottom: #354141 solid 4px;}
+
+.calendar-calendar .month-view .full tr td.multi-day, .calendar-calendar .month-view .full tr td.date-box{border-right: #354141 solid 4px; background: #394A4A; color: #497274;  padding-right: 3px; font-weight: bold;}
+
+.calendar-calendar .month-view .full tr.single-day .no-entry{border-right: #354141 solid 4px; border-bottom: #354141 solid 4px; background: #394A4A; color: #497274;  padding-right: 3px; font-weight: bold;}
+
+.calendar-calendar .month-view .full tr td.multi-day, .calendar-calendar .month-view .full tr td.single-day 
+{ background: #394A4A; color: #394A4A; border-right: #354141 solid 4px; border-bottom: #354141 solid 4px;  color: #497274;  padding-right: 3px; font-weight: bold;}
+
+.calendar-calendar .month-view .full tr td.date-box{background: #3D5354}
+.calendar-calendar .month-view .full td.single-day div.monthview, .calendar-calendar .week-view .full td.single-day div.weekview, .calendar-calendar .day-view .full td.single-day div.dayview{background: #5A9B9D;}
+.calendar-calendar td .inner div.calendar div a{color: #394A4A; font-weight: bold; padding: 0; font-size: 12px;}
+.calendar-calendar td .inner div.day a{color: #5A9B9D;}
+
+.calendar-calendar .week-view .full div.calendar-agenda-hour, .calendar-calendar .day-view .full div.calendar-agenda-hour, .calendar-calendar .week-view .full div.calendar-agenda-items, .calendar-calendar .day-view .full div.calendar-agenda-items{ border-top: #354141 solid 4px;}
+.calendar-calendar .week-view #multi-day-container table td, .calendar-calendar .day-view #multi-day-container table td{border-bottom: #354141 solid 4px; background: #3D5354;}
+
+.header-body-divider-processed{display: none;}
+.calendar-calendar .week-view #multi-day-container, .calendar-calendar .day-view #multi-day-container{border: none;}
+#multi-day-container{display: none;}
+
+.calendar-calendar .week-view #single-day-container, .calendar-calendar .day-view #single-day-container{border-top: none;}
+
+.calendar-calendar .week-view .full div.single-day div.weekview, .calendar-calendar .day-view .full div.single-day div.dayview{background: #5A9B9D;}
+
+.calendar-calendar .week-view .full div.single-day div.weekview, .calendar-calendar .day-view .full div.single-day div.dayview{border: none;}
+
+.calendar-calendar td span.date-display-single, .calendar-calendar td span.date-display-start, .calendar-calendar td span.date-display-end, .calendar-calendar td span.date-display-separator {color: #fff;}
+
+.calendar-calendar .week-view .full .calendar-agenda-hour, .calendar-calendar .week-view #single-day-container table td, .calendar-calendar .day-view #single-day-container table td {background: #3D5354;}
+#header-container  th{border-bottom: none; background: #497274;}
+
+.calendar-calendar .week-view #multi-day-container, .calendar-calendar .week-view #single-day-container, .calendar-calendar .day-view #multi-day-container, .calendar-calendar .day-view #single-day-container{border: none;}
+
+
+.calendar-calendar .week-view .header-body-divider, .calendar-calendar .week-view .single-day-footer, .calendar-calendar .day-view .single-day-footer, .calendar-calendar .day-view .header-body-divider, .single-day-footer .grippie, .header-body-divider .grippie{background: #5A9B9D; border: none;}
+
+
+.calendar-calendar table.mini tbody thead tr{height: auto;}
 

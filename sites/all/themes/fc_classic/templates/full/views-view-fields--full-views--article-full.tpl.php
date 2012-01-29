@@ -1,7 +1,6 @@
 <div class="full article">
 	<div class="author clearfix">
-		Posted by: <a href="/user/<?php print $fields['name']->content; ?>"><?php print $fields['field_user_name']->content; ?> </a>
-		on: <?php print $fields['created']->content; ?>
+		<a href="/type/article">Article</a> posted on: <?php print $fields['created']->content; ?>
 		<div class="service-links clearfix"><?php print $fields['service_links']->content; ?></div>
 	</div>
 	
@@ -9,12 +8,7 @@
 	   <div class="image-holder">
 		   
 		   <?php print $fields['field_article_images']->content; ?>
-		   <?php if($fields['field_article_images_1']->content): ?>
-		   	<div class="images clearfix">
-		   		<h2>Other Images</h2>
-		   		<?php print $fields['field_article_images_1']->content; ?>
-		   	</div>
-		   <?php endif; ?>
+		   
 	   </div>
 	<?php endif; ?>
 	
@@ -26,6 +20,13 @@
 		<?php endif; ?>
 	   </div>
 	<?php endif; ?>
+	
+	<?php if($fields['field_article_images_1']->content): ?>
+		   	<div class="images clearfix">
+		   		<h2>Other Images</h2>
+		   		<?php print $fields['field_article_images_1']->content; ?>
+		   	</div>
+		   <?php endif; ?>
 	
 	<?php if($fields['field_focus']->content): ?>
 	   <div class="tags">Tags <?php print $fields['field_focus']->content; ?> <?php print $fields['field_cause']->content; ?></div>

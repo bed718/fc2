@@ -28,7 +28,9 @@
 							<li><a href="/fc/node/add/needs">add needs</a></li>
 							<li><a href="/fc/node/add/project">add a project</a></li>
 						<? else: ?>
-							<li><a href="/fc/node/add/article">add a post</a></li>
+							<li><a href="/fc/node/add/article">add a article/story</a></li>
+							<li><a href="/fc/node/add/pictures">add some pictures</a></li>
+							<li><a href="/fc/node/add/event">add an event</a></li>
 							<li><a href="/fc/node/add/video">add a video</a></li>
 						<?php endif; ?>
 					</ul>

@@ -1,5 +1,8 @@
 <div class="full event">
-	
+	<div class="author clearfix">
+		<a href="/type/event">Event</a> posted on: <?php print $fields['created']->content; ?>
+		<div class="service-links clearfix"><?php print $fields['service_links']->content; ?></div>
+	</div>
 	<div class="info clearfix">
 		<ul>
 		<li>
