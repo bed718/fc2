@@ -121,4 +121,21 @@ function profile2_regpath_update_7130() {
     'not null' => FALSE,
   );
   db_add_field('profile2_regpath', 'misc', $misc_specs);
+
+  $profile_types = profile2_regpath_get_profiles();
+  foreach ($profile_types as $key => $value) {
+    // Check for name space collisions after changing URL pattern.
+    // We must make exceptions for '/user' and other p2rp registered paths.
+    if ($value->path != 'user' && $existing_item = menu_get_item($value->path)) {
+      if ($existing_item['page_callback'] != '_profile2_regpath_user_login') {
+        drupal_set_message(t("Error, there is a name space collision between and existing URL alias and the Profile2 Registration path '@path'", array('@path' => $value->path)));
+        module_disable(array('profile2_regpath'));
+      }
+    }
+    // Check to see if selected path is being used by an alias.
+    if ($existing_alias = drupal_lookup_path('source', $value->path)) {
+      drupal_set_message(t("Error, there is a name space collision between and existing URL alias and the Profile2 Registration path '@path'", array('@path' => $value->path)));
+      module_disable(array('profile2_regpath'));
+    }
+  }
 }

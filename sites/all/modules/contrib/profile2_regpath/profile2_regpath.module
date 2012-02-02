@@ -2,8 +2,11 @@
 
 /**
  * @file
- * Attach profile2 form to registration form according to path
+ * Attach profile2 form to registration form according to path.
  */
+
+// @todo Create tests
+// @todo Make profile2_regpath settings exportable via CTools.
 
 /**
  * Implements hook_menu().
@@ -20,9 +23,7 @@ function profile2_regpath_menu() {
         $items[$value->path] = array(
           'title' => 'Log in',
           'page callback' => '_profile2_regpath_user_login',
-          'page arguments' => array(
-            'profile' => $value,
-          ),
+          'page arguments' => array($value),
           'access callback' => 'user_is_anonymous',
           'file' => 'registration_form.inc',
           'menu_name' => 'user-menu',
@@ -31,9 +32,7 @@ function profile2_regpath_menu() {
         $items[$value->path . '/login'] = array(
           'title' => 'Log in',
           'page callback' => '_profile2_regpath_user_login',
-          'page arguments' => array(
-            'profile' => $value,
-          ),
+          'page arguments' => array($value),
           'access callback' => 'user_is_anonymous',
           'file' => 'registration_form.inc',
           'type' => MENU_DEFAULT_LOCAL_TASK,
@@ -41,9 +40,7 @@ function profile2_regpath_menu() {
         $items[$value->path . '/register'] = array(
           'title' => 'Create new account',
           'page callback' => '_profile2_regpath_user_register',
-          'page arguments' => array(
-            'profile' => $value,
-          ),
+          'page arguments' => array($value),
           'access callback' => 'user_is_anonymous',
           'file' => 'registration_form.inc',
           'type' => MENU_LOCAL_TASK,
@@ -52,10 +49,21 @@ function profile2_regpath_menu() {
           'title' => 'Request new password',
           'type' => MENU_LOCAL_TASK,
           'page callback' => '_profile2_regpath_user_password',
+          'page arguments' => array($value),
+          'access callback' => 'user_is_anonymous',
+          'file' => 'registration_form.inc',
+        );
+        // Add profile-specific administrative 'add user' page.
+        $items['admin/people/p2rp-create/' . $value->path] = array(
+          'title' => 'Add user (' . $value->label . ' profile)',
+          'page callback' => '_profile2_regpath_user_register',
           'page arguments' => array(
             'profile' => $value,
+            'title' => 'Create',
+            'description' => 'Add user using ' . $value->label . ' profile fields',
           ),
-          'access callback' => 'user_is_anonymous',
+          'access arguments' => array('administer users'),
+          'type' => MENU_LOCAL_ACTION,
           'file' => 'registration_form.inc',
         );
       }
@@ -70,14 +78,9 @@ function profile2_regpath_menu() {
 function profile2_regpath_menu_alter(&$items) {
   // Check to see if the default 'user' path is being used with Profile2.
   if ($user_paths = profile2_regpath_get_profiles('user')) {
-    $pids = array();
-    foreach ($user_paths as $key => $value) {
-      $pids[] = $user_paths[$key]->id;
-    }
-
     // Build form at user/register using _profile2_regpath_user_register().
     $items['user/register']['page callback'] = '_profile2_regpath_user_register';
-    $items['user/register']['page arguments'] = $pids;
+    $items['user/register']['page arguments'] = array($user_paths[0]);
     $items['user/register']['file'] = 'registration_form.inc';
     $items['user/register']['file path'] = drupal_get_path('module', 'profile2_regpath');
 
@@ -107,6 +110,10 @@ function profile2_regpath_form_profile2_type_form_alter(&$form, &$form_state, $f
     $profile_type = $form['type']['#default_value'];
     $profile_id = profile2_regpath_get_profile_id($profile_type);
     $settings = db_query("SELECT * FROM {profile2_regpath} WHERE profile_id = :profile_id", array(':profile_id' => $profile_id))->fetch();
+    // Unserialize array of miscellaneous display options.
+    if (is_object($settings)) {
+      $misc = unserialize($settings->misc);
+    }
 
     // Change description of Profile2's registration checkbox to create clear distinction.
     $form['data']['registration']['#title'] = t('Show on all user account registration forms.');
@@ -132,7 +139,7 @@ function profile2_regpath_form_profile2_type_form_alter(&$form, &$form_state, $f
         ),
       ),
     );
-    // @todo add unlimited cardinality to the path field.
+    // @todo add unlimited cardinality to the path field OR change to textarea and loop through each line.
     $form['regpath']['settings']['path'] = array(
       '#type' => 'textfield',
       '#title' => t('URL path'),
@@ -149,6 +156,41 @@ function profile2_regpath_form_profile2_type_form_alter(&$form, &$form_state, $f
       '#multiple' => TRUE,
     );
 
+    // Add textfields for custom titles on the login, register, and forgot password pages.
+    $form['regpath']['settings']['custom_titles'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Set custom page titles for the login, register, and forgot password pages.'),
+      '#default_value' => is_object($settings) && isset($misc['custom_titles']) ? $misc['custom_titles'] : 0,
+      '#description' => t('Enabling this option will permit you to override the default title of "User Account" on the login, register, and forgot password pages.'),
+    );
+    $form['regpath']['settings']['custom_titles_settings'] = array(
+      '#type' => t('fieldset'),
+      '#title' => t('Custom page titles'),
+      '#states' => array(
+        'invisible' => array(
+          'input[name="custom_titles"]' => array('checked' => FALSE),
+        ),
+      ),
+    );
+    $form['regpath']['settings']['custom_titles_settings']['login_title'] = array(
+          '#type' => 'textfield',
+          '#title' => t('Login page title'),
+          '#default_value' => is_object($settings) && isset($misc['login_title']) ? $misc['login_title'] : 'User Account',
+          '#description' => t('Enter the title you want to display in the login page. The default title is <i>User Account</i>.')
+    );
+    $form['regpath']['settings']['custom_titles_settings']['register_title'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Register page title'),
+      '#default_value' => is_object($settings) && isset($misc['register_title']) ? $misc['register_title'] : 'User Account',
+      '#description' => t('Enter the title you want to display in the registration page. The default title is <i>User Account</i>.')
+    );
+    $form['regpath']['settings']['custom_titles_settings']['password_title'] = array(
+          '#type' => 'textfield',
+          '#title' => t('Password page title'),
+          '#default_value' => is_object($settings) && isset($misc['password_title']) ? $misc['password_title'] : 'User Account',
+          '#description' => t('Enter the title you want to display in the request new password page. The default title is <i>User Account</i>.')
+    );
+
     // Add form fields for assigning roles during registration.
     $roles = user_roles(TRUE);
     unset($roles[DRUPAL_AUTHENTICATED_RID]);
@@ -160,19 +202,17 @@ function profile2_regpath_form_profile2_type_form_alter(&$form, &$form_state, $f
       '#options' => $roles,
       '#default_value' => is_object($settings) && $settings->roles ? unserialize($settings->roles) : array(),
     );
-
-    $misc = unserialize($settings->misc);
     $form['regpath']['settings']['fieldset_wrap'] = array(
       '#type' => 'checkbox',
       '#title' => 'Wrap profile fields in a fieldset',
       '#description' => t('If checked, all profile fields for this profile type will be wrapped in a fieldset titled @label on the user registration form.', array('@label' => '')),
-      '#default_value' => is_object($settings) && $misc['fieldset_wrap'] ? $misc['fieldset_wrap'] : 0,
+      '#default_value' => is_object($settings) && isset($misc['fieldset_wrap']) ? $misc['fieldset_wrap'] : 0,
     );
 
     $form['regpath']['settings']['weight'] = array(
       '#type' => 'select',
       '#title' => t('Weight'),
-      '#description' => t('If multiple sets of profile fields are attached to a single registration path, they will be sorted in ascending order by weight.'),
+      '#description' => t("If multiple sets of profile fields are attached to a single registration path, they will be sorted in ascending order by weight. This will affect both the order of profile fields and the title settings."),
       '#options' => drupal_map_assoc(range(-10, 10, 1)),
       '#default_value' => is_object($settings) && $settings->weight ? $settings->weight : 0,
     );
@@ -208,7 +248,13 @@ function profile2_regpath_validate_settings($form, &$form_state) {
 }
 
 /**
- * Recognizes valid URL patterns.
+ * Verifies the syntax of the given URL.
+ *
+ * @param string $url
+ *   A string containing a URL.
+ *
+ * @return
+ *   TRUE if the URL is in a valid format, and FALSE if it isn't.
  */
 function profile2_regpath_url_validator($url) {
   $LINK_ICHARS_DOMAIN = (string) html_entity_decode(implode("", array(
@@ -266,6 +312,10 @@ function profile2_regpath_save_settings($form, &$form_state) {
   $fields['roles'] = serialize($form_state['values']['roles']);
   $fields['misc'] = serialize(array(
     'fieldset_wrap' => $form_state['values']['fieldset_wrap'],
+    'custom_titles' => $form_state['values']['custom_titles'],
+    'login_title' => $form_state['values']['login_title'],
+    'register_title' => $form_state['values']['register_title'],
+    'password_title' => $form_state['values']['password_title'],
   ));
 
   // Add settings to database.
@@ -274,11 +324,33 @@ function profile2_regpath_save_settings($form, &$form_state) {
     ->fields($fields)
     ->execute();
 
-  // Rebuild the menu if a registration path has been changed.
-  if ($form['regpath']['settings']['path']['#default_value'] != $form_state['values']['path']) {
-    if (menu_rebuild()) {
-      $path = $form_state['values']['path'] . '/register';
-      drupal_set_message(t('The menu system has been rebuilt.'));
+  // Build array of form elements to check for new values.
+  $changed_check = array(
+    array(
+      'default' => $form['regpath']['settings']['path']['#default_value'],
+      'new' => $form_state['values']['path'],
+    ),
+    array(
+      'default' => $form['regpath']['settings']['custom_titles_settings']['login_title']['#default_value'],
+      'new' => $form_state['values']['login_title'],
+    ),
+    array(
+      'default' => $form['regpath']['settings']['custom_titles_settings']['register_title']['#default_value'],
+      'new' => $form_state['values']['register_title'],
+    ),
+    array(
+      'default' => $form['regpath']['settings']['custom_titles_settings']['password_title']['#default_value'],
+      'new' => $form_state['values']['password_title'],
+    ),
+  );
+  // Rebuild the menu if any of the following values have been changed.
+  $REBUILD = FALSE;
+  foreach ($changed_check as $field) {
+    if ($field['default'] != $field['new'] && $REBUILD == FALSE) {
+      if (menu_rebuild()) {
+        drupal_set_message(t('The menu system has been rebuilt.'));
+        $REBUILD = TRUE;
+      }
     }
   }
 }
@@ -297,6 +369,7 @@ function profile2_regpath_profile2_type_delete($type) {
  * Implements hook_form_FORM_ID_alter().
  */
 function profile2_regpath_form_user_register_form_alter(&$form, &$form_state, $form_id) {
+  global $user;
   // Get profile2 profile types from current path.
   $profile_types = _get_profile_types_by_path();
 
@@ -310,6 +383,10 @@ function profile2_regpath_form_user_register_form_alter(&$form, &$form_state, $f
     // which cannot properly access arg(0) in _get_profile_types_by_path().
     $_SESSION['p2rp_profile_types'] = $profile_types;
 
+    // Prepare varibles for roles.
+    $user_roles = user_roles(TRUE);
+    $roles = array();
+
     // Attach profile(s) to user/register form.
     foreach ($profile_types as $key => $value) {
       // Get profile object.
@@ -318,7 +395,7 @@ function profile2_regpath_form_user_register_form_alter(&$form, &$form_state, $f
       // Add profile object to $form_state.
       if (empty($form_state['profiles'][$type_name])) {
         $form_state['profiles'][$type_name] = profile_create(array('type' => $type_name));
-       }
+      }
 
       // Trigger Profile2 to attach fields from profile defined in $form_state.
       profile2_attach_form($form, $form_state);
@@ -330,12 +407,32 @@ function profile2_regpath_form_user_register_form_alter(&$form, &$form_state, $f
           '#title' => check_plain($profile_type->label),
         );
       }
+
+      // Add appropriate user roles.
+      $profile_roles = unserialize($value->roles);
+      foreach ($profile_roles as $rid => $value) {
+        // Add role to roles array if it isn't already there.
+        if ($value != 0 && !array_key_exists($rid, $form['account']['roles'])) {
+          $form['account']['roles'][$rid] = array(
+            '#type' => 'checkbox',
+            '#title' => check_plain($user_roles[$rid]),
+            '#default_value' => TRUE,
+            '#disabled' => (user_access('administer users') ? FALSE : TRUE),
+          );
+        }
+      }
     }
   }
 }
 
 /**
  * Provides profile_id by profile machine_name.
+ *
+ * @param string $profile_type
+ *   Machine-name of profile2 profile type.
+ *
+ * @return string
+ *   The profile id for indicated profile type.
  */
 function profile2_regpath_get_profile_id($profile_type) {
   $profile_id = db_query("SELECT id FROM {profile_type} WHERE type = :profile_type", array(':profile_type' => $profile_type))->fetchField();
@@ -343,88 +440,49 @@ function profile2_regpath_get_profile_id($profile_type) {
 }
 
 /**
- * Implements hook_user_presave().
- */
-function profile2_regpath_user_presave(&$edit, $account, $category) {
-
-  // Only assign roles if this is a new account.
-  if (isset($account->is_new) && !empty($account->is_new)) {
-    // Get the existing user roles with the exception of the anonymous role.
-    $user_roles = user_roles(TRUE);
-    $roles_to_add = array();
-
-    // Get profile2 profile type from current path.
-    $profile_types = _get_profile_types_by_path();
-
-    if ($profile_types != NULL) {
-      $selected_roles = array();
-
-      foreach ($profile_types as $key => $value) {
-        // Grab specified roles for this profile type.
-        $profile_type = $profile_types[$key]->type;
-
-        $query = db_select('profile2_regpath', 'pr');
-        $query->join('profile_type', 'pt', 'pr.profile_id = pt.id');
-        $query->fields('pr', array('roles'));
-        $query->condition('pt.type', $profile_type);
-        $result = $query->execute();
-        $roles = $result->fetchField();
-
-        if ($roles) {
-          // Build necessary arrays.
-          $roles = unserialize($roles);
-          foreach ($roles as $rid => $value) {
-            // Add role to $roles_to_add.
-            if ($value != 0) {
-              $selected_roles[$rid] = $user_roles[$rid];
-            }
-          }
-        }
-      }
-
-      // Add roles from $select_roles to user.
-      if (count($selected_roles) > 0) {
-        // This intermediary steps ensure that selected roles actually match those in {roles}.
-        $roles_to_add = array_intersect_key($user_roles, array_filter($selected_roles));
-
-        // Add in the new roles.
-        if ($roles_to_add != NULL && count((array)$roles_to_add) > 0) {
-          // Make sure the roles key exists.
-          if (!isset($edit['roles'])) {
-            $edit['roles'] = array();
-          }
-
-          $edit['roles'] = $roles_to_add + $edit['roles'];
-        }
-      }
-    }
-  }
-}
-
-/**
- * Returns profile2 profile types from current path.
+ * Returns profile2 profile types from the current path.
+ *
+ * @return object
+ *   An object containing all matching profile2 registration path enabled
+ *   profile types.
  */
 function _get_profile_types_by_path() {
-  $current_path = arg(0);
+  // If this is an administrative 'add user' page.
+  if (arg(2) == 'p2rp-create') {
+    $current_path = arg(3);
+  }
+  // Otherwise, use the first segment of the url path.
+  else {
+    $current_path = arg(0);
+  }
   $profile_types = profile2_regpath_get_profiles($current_path);
-
   return $profile_types;
 }
 
 /**
  * Returns object containing all p2rp registration paths.
  *
- * @params $path
- *   Optionally pass in path value for WHERE condition.
+ * @param string $path
+ *   (optional) path value for WHERE condition. Default to NULL.
+ *
+ * @param string $groupby
+ *   (optional) field to groupby. Default to NULL.
+ *
+ * @return object
+ *   An object containing all matching profile2 registration path enabled
+ *   profile types.
  */
-function profile2_regpath_get_profiles($path = NULL) {
+function profile2_regpath_get_profiles($path = NULL, $groupby = NULL) {
   // Get data object of all registration paths.
   $query = db_select('profile2_regpath', 'pr');
   $query->join('profile_type', 'pt', 'pr.profile_id = pt.id');
-  $query->fields('pr', array('path', 'misc', 'status'));
+  $query->fields('pr', array('path', 'roles', 'misc', 'status'));
   $query->fields('pt', array('id', 'label', 'type'));
-  if ($path) { 
-    $query->condition('path', $path); 
+  if ($path) {
+    $query->condition('path', $path);
+  }
+  if ($groupby) {
+    $query->groupBy($groupby);
   }
   $query->condition('pr.status', 1);
   $query->orderBy('pr.weight', 'ASC');

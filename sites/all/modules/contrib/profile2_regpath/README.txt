@@ -21,5 +21,3 @@ INSTRUCTIONS
 CREDITS
 --------------------------------
 * Authored and maintained by Matthew Grasmick (madmatter23 on drupal.org)
-* Some development sponsored by Blue Water Media
-
