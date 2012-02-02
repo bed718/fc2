@@ -55,28 +55,49 @@ function fc_form_overrides_form_alter(&$form, $form_state, $form_id){
 			$form['comment_body']['#after_build'][] = 'fc_form_overrides_customize_comment_form';			
 		break;
 		
+		case 'article_node_form':
+		case 'news_node_form':
+		case 'need_node_form':
+		case 'project_node_form':
+		case 'pictures_node_form':
+		case 'videos_node_form':
+		case 'event_node_form':
+			$form['actions']['submit']['#value'] = t('Create!');
+		break;
+		
+		case 'user_profile_form':
+			drupal_set_title('My User Settings');
+		break;
+		
+		
 	}
 	
 }
 
 function fc_form_overrides_customize_comment_form(&$form){
+
+	$form[LANGUAGE_NONE][0]['format']['#access'] = FALSE; 
+	return $form;
+}
+
+function fc_form_overrides_customize_body_info(&$form){
+//dpm($form['body']['und']);
 	$form[LANGUAGE_NONE][0]['format']['#access'] = FALSE; 
 	return $form;
 }
 
 function fc_form_overrides_form_profile2_form_alter(&$form, &$form_state) {
-	if($form['profile_user']){
 	
-		
+	if($form['profile_user']){		
 		
 	}elseif($form['profile_charity']){
 	
-		
 	}
 }
 
 function fc_form_overrides_form_user_register_form_alter(&$form, $form_state){
 	$form['#theme'] = 'user_register';
+	
 }
 
 

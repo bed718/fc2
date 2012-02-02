@@ -25,13 +25,13 @@
 		<div class="icons">
 			<div class="icon-focus icons-25">
 				<?php if(strpos($focus, 'Animal') !== false): ?>
-					<div class="icon animal"><a href="#"></a></div>
+					<div class="icon animal"><a href="/animals"></a></div>
 				<?php endif; ?>
 				<?php if(strpos($focus, 'People') !== false): ?>
-					<div class="icon people"><a href="#"></a></div>
+					<div class="icon people"><a href="/environment"></a></div>
 				<?php endif; ?>
 				<?php if(strpos($focus, 'Environment') !== false): ?>
-					<div class="icon enviro"><a href="#"></a></div>
+					<div class="icon enviro"><a href="/people"></a></div>
 				<?php endif; ?>
 			</div>
 			<div class="icons-bg"></div>

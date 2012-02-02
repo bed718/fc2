@@ -88,14 +88,14 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 	#block-nice-menus-1 ul{list-style: none;}
 		#block-nice-menus-1 ul li{float: left; margin-right: 8px; border: none;}
 			#block-nice-menus-1 ul li a{color: #354141; background: #fff; border-bottom: #5A9B9D solid 8px;}
-			#block-nice-menus-1 ul li a:hover{color: #5A9B9D; background: #354141;}
+			#block-nice-menus-1 ul li a:hover{color: #5A9B9D; background: #2a3131;}
 			#block-nice-menus-1 ul li.active-trail a, #block-nice-menus-1 ul li a.active{color: #5A9B9D; background: #354141; border-bottom: #354141 solid 8px;}
 			
 		#block-nice-menus-1 ul ul{border: none; margin-top: 15px;}
 			#block-nice-menus-1 ul ul li{}
 				#block-nice-menus-1 ul ul li a, #block-nice-menus-1 ul li.active-trail ul a{color: #354141; background: #fff; border: none;}
 				#block-nice-menus-1 ul ul li a.active{color: #5A9B9D; background: #354141;}
-				#block-nice-menus-1 ul li.active-trail a:hover{color: #5A9B9D; background: #354141;}
+				#block-nice-menus-1 ul li.active-trail a:hover{color: #5A9B9D; background: #2a3131;}
 
 
 /* USER NAV */
@@ -293,6 +293,7 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 	.teaser-featured-large .teaser .details h1{font-size: 20px; background: none;}
 		.teaser-featured-large .teaser .details h1 a{color: #354141;}
 			.teaser-featured-large .teaser .details h1 a:hover{color: #5A9B9D;}
+		.teaser-featured-large .teaser .details .stats a:hover{color: #354141;}
 
 /* TEASER DETAILS ---------------------- */
 .teaser-details{margin-bottom: 20px}
@@ -423,8 +424,9 @@ _____________________________________________________________________________
 	.profile-header .image{float: left;}
 	.profile-header .image .icons{position: absolute; bottom: 0; right: 0;}
 	.profile-header .image .icon{float: right;}
-	.profile-header .image .follow-btn{height: 20px; line-height: 20px; font-weight: bold; text-transform: uppercase; width: 100%; text-align: center; position: absolute; bottom: -20px; left: 0; font-size: 10px; background: #394A4A; line-height: 20px;}
-	.follow-btn a{line-height: 20px !important;}
+	.profile-header .image .follow-btn{height: 20px; line-height: 20px; font-weight: bold; text-transform: uppercase; width: 100%; text-align: center; position: absolute; bottom: -20px; left: 0; font-size: 10px; background: #fff; line-height: 20px;}
+	.follow-btn a{line-height: 20px !important; color: #394A4A;}
+	.follow-btn a:hover{background: #5A9B9D;}
 	.flag-message{text-align: left; top: 0;}
 	.profile-header .details{margin-left: 195px;}
 	.profile-header .hgroup{min-height: 65px;}
@@ -591,7 +593,8 @@ _____________________________________________________________________________
 
 /* FOOTER STYLES
 -------------------------------------------------------------- */
-#footer{ position: relative; clear: both; background: #394A4A; padding:10px 0 0; margin-top: 30px;}
+#footer{ position: relative; clear: both; background: #394A4A; padding:10px 0 0; margin-top: 30px; z-index: 100;}
+#footer a.active{color: #fff;}
 #footer h2{ margin-bottom: 10px; color: #fff; font-size: 18px; font-weight: normal;}
 #footer-main{width: 955px; margin: 0 auto;}
 #footer-left{float: left; width: 305px; margin-right: 20px;}

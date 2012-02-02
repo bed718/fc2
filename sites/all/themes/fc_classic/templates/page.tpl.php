@@ -15,6 +15,7 @@
 					<ul>
 						<li><a href="<?php print '/fc/user/' . $user->uid . '/edit/' . $user->user_type; ?>">edit my profile</a></li>
 						<li><a href="<?php print '/fc/user/' . $user->uid . '/edit'; ?>">edit my account</a></li>
+						<li><a href="/cart">my cart</a></li>
 					</ul>
 				</li>
 				<li>
@@ -22,10 +23,10 @@
 					<ul>
 						<?php if($user->user_type == 'charity'): ?>
 							<li><a href="/fc/node/add/news">add news</a></li>
-							<li><a href="/fc/node/add/events">add events</a></li>
+							<li><a href="/fc/node/add/event">add events</a></li>
 							<li><a href="/fc/node/add/pictures">add pictures</a></li>
 							<li><a href="/fc/node/add/video">add a video</a></li>
-							<li><a href="/fc/node/add/needs">add needs</a></li>
+							<li><a href="/fc/node/add/need">add needs</a></li>
 							<li><a href="/fc/node/add/project">add a project</a></li>
 						<? else: ?>
 							<li><a href="/fc/node/add/article">add a article/story</a></li>
@@ -47,7 +48,7 @@
 	</div>
 </div>
 	
-<div id="container">
+<div id="container" class="clearfix">
 	<?php if ($messages): ?>
 	 <div id="messages"><div class="section clearfix">
 	   <?php print $messages; ?>
@@ -61,23 +62,29 @@
 	
   
 	<?php if ($page['sidebar_first']): ?>
-		<div class="sideleft">
+		<div class="sideleft clearfix">
 			<div class="side-content">
 				<?php print render($page['sidebar_first']); ?>
 			</div>
 			<div class="main-content">
-			<?php if ($title): ?>
+			<?php if ($title123): ?>
 			 <div class="page-header">
 			   <h2><?php print $title; ?></h2>
-			 </div> <!-- /.section, /#messages -->
+			 </div>
 			<?php endif; ?>
 				<?php print render($page['content']); ?>
 			</div>
 		</div>
 	<?php else: ?>
+	<?php if ($title123): ?>
+			 <div class="page-header">
+			   <h2><?php print $title; ?></h2>
+			 </div>
+			<?php endif; ?>
 		<?php print render($page['content']); ?>
 	<?php endif; ?>
 	
+	<div class="push"></div>	
 </div>
 
 <div id="footer" class="clearfix">

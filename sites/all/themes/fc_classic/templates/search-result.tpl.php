@@ -95,7 +95,7 @@
 		<div class="icons">
 			<?php if($type != 'user'): ?>
 			<div class="icon-type icons-30">
-				<div class="icon <?php print $type; ?>"><a href="#"></a></div>
+				<div class="icon <?php print $type; ?>"><a href="/type/<?php print $type; ?>"></a></div>
 			</div>
 			<?php endif; ?>
 			<?php if($type != 'user'): ?>
@@ -104,13 +104,13 @@
 			<div class="icon-focus  icons-30">
 			<?php endif; ?>
 				<?php if($animal_focus): ?>
-					<div class="icon animal"><a href="#"></a></div>
+					<div class="icon animal"><a href="/animals"></a></div>
 				<?php endif; ?>
 				<?php if($enviro_focus): ?>
-					<div class="icon enviro"><a href="#"></a></div>
+					<div class="icon enviro"><a href="/environment"></a></div>
 				<?php endif; ?>
 				<?php if($people_focus): ?>
-					<div class="icon people"><a href="#"></a></div>
+					<div class="icon people"><a href="/people"></a></div>
 				<?php endif; ?>
 			</div>
 			<div class="icons-bg"></div>

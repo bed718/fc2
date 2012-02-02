@@ -27,12 +27,9 @@
 		<div class="nav-give">
 			<div class="nav">
 				<a href="/fc/user/<?php print $fields['name']->content; ?>">Overview</a>
-				<a href="/fc/user/<?php print $fields['name']->content; ?>/news">news</a>
-				<a href="/fc/user/<?php print $fields['name']->content; ?>/events">events</a>
-				<a href="/fc/user/<?php print $fields['name']->content; ?>/videos">videos</a>
-				<a href="/fc/user/<?php print $fields['name']->content; ?>/pictures">pictures</a>
-				<a href="/fc/user/<?php print $fields['name']->content; ?>/projects">projects</a>
-				<a href="/fc/user/<?php print $fields['name']->content; ?>/saved events">needs</a>
+				<a href="/fc/user/<?php print $fields['name']->content; ?>/my-posts">my posts</a>
+				<a href="/fc/user/<?php print $fields['name']->content; ?>/saved-events">saved events</a>
+				<a href="/fc/user/<?php print $fields['name']->content; ?>/followed-charities">followed charities</a>
 			</div>			
 		</div>
 	</div>

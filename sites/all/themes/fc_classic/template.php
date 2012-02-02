@@ -91,9 +91,11 @@ function fc_classic_preprocess_node(&$vars){
 		unset($i);
 	}
 	
+	// SET EVENT INFO
 	$event_date = date_create($node->field_event_date['und'][0]['value']);
 	$vars['event_city'] = $node->field_event_location['und'][0]['city'];
 	$vars['event_state'] = $node->field_event_location['und'][0]['province'];
+	
 	
 	// SET SPECIFIC TEASERS
 	if($vars['teaser']){
@@ -116,7 +118,6 @@ function fc_classic_preprocess_node(&$vars){
 		$vars['event_date'] = date_format($event_date, 'F dS Y - g:iA');
 		
 		$vars['teaser_class'] = 'teaser-details';
-		//dpm($node);
 	}
 	
 	if($vars['view_mode'] == 'fc_teaser_featured'){
@@ -129,8 +130,9 @@ function fc_classic_preprocess_node(&$vars){
 		$vars['event_date'] = date_format($event_date, 'F dS Y - g:iA');
 		
 		$vars['teaser_class'] = 'teaser-featured';
-		
 	}
+	
+	
 	
 	
 }
@@ -195,11 +197,10 @@ function fc_classic_preprocess_user_login_block(&$vars) {
 
 
 function fc_classic_preprocess_user_register(&$vars) {
-	//kpr($vars['form']);
 	if($vars['form']['profile_user']){
 		$vars['reg_type'] = t('user');
 		$vars['form']['account']['name']['#description'] = t('This will be the path to your personal profile. <br />eg. http://freshcharities.com/user/[ your_custom_url ]');
-		unset($vars['form']['profile_user']['field_user_profile_image']);
+		//unset($vars['form']['profile_user']['field_user_profile_image']);
 		$vars['form']['profile_user']['field_uesr_zip']['und'][0]['postal_code']['#title'] = t('Zipcode');
 		$vars['form']['profile_user']['field_uesr_zip'] = $vars['form']['profile_user']['field_uesr_zip']['und'][0]['postal_code'];
 		$vars['profile'] = drupal_render($vars['form']['profile_user']);
@@ -218,6 +219,7 @@ function fc_classic_preprocess_user_register(&$vars) {
 	$vars['captcha'] = drupal_render($vars['form']['captcha']);
 	$vars['submit'] = drupal_render($vars['form']['actions']['submit']);
 	$vars['rendered'] = drupal_render_children($vars['form']);
+	drupal_set_title('asdasd');
 }
 
 
@@ -240,7 +242,7 @@ function fc_classic_fieldset($variables) {
   $output = '<fieldset' . drupal_attributes($element['#attributes']) . '>';
   if (!empty($element['#title'])) {
     // Always wrap fieldset legends in a SPAN for CSS positioning.
-    $output .= '<div class="legend"><span class="fieldset-legend">' . $element['#title'] . '</span></div>';
+    $output .= '<legend class="legend"><span class="fieldset-legend">' . $element['#title'] . '</span></legend>';
   }
   $output .= '<div class="fieldset-wrapper">';
   if (!empty($element['#description'])) {
@@ -268,12 +270,6 @@ function fc_classic_preprocess_search_results(&$vars) {
  		 }
  	 	$vars['search_results'] .= '</tr>';
  	 }
-	
-	
-	//dpm($vars['search_results']);
-	
-	//$vars['result_0'] = drupal_render($vars['results']);
-	
 }
 
 function fc_classic_preprocess_search_result(&$vars) {

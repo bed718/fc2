@@ -6,9 +6,9 @@
 	}
 	
 	if($fields['field_charity_donations']->content){
-		$time_link = $fields['field_charity_donations']->content;
+		$don_link = $fields['field_charity_donations']->content;
 	}else{
-		$time_link = $fields['field_charity_website']->content;
+		$don_link = $fields['field_charity_website']->content;
 	}
 	
 	$focus = $fields['field_focus']->content;
@@ -57,7 +57,7 @@
 			</div>
 			
 			<div class="give-btn">
-				<div class="time-btn top-tip"  title="<div class='arrow'></div>donate your time"><a href="#<?php //print $time_link; ?>"></a></div>
+				<div class="time-btn top-tip"  title="<div class='arrow'></div>donate your time"><a href="<?php print $time_link; ?>"  target="_blank"></a></div>
 				<div class="money-btn top-tip show-doantion" title="<div class='arrow'></div>donate money"><a href="#<?php //print $time_link; ?>"></a></div>
 			</div>
 		</div>

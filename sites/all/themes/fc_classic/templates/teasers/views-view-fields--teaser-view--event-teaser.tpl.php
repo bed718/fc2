@@ -31,17 +31,17 @@
 		
 		<div class="icons">
 			<div class="icon-type icons-30">
-				<div class="icon <?php print strtolower($fields['type']->content); ?>"><a href="#"></a></div>
+				<div class="icon <?php print strtolower($fields['type']->content); ?>"><a href="/type/<?php print strtolower($fields['type']->content); ?>"></a></div>
 			</div>
 			<div class="icon-focus icons-25">
 				<?php if(strpos($focus, 'Animal') !== false): ?>
-					<div class="icon animal"><a href="#"></a></div>
+					<div class="icon animal"><a href="/animals"></a></div>
 				<?php endif; ?>
 				<?php if(strpos($focus, 'People') !== false): ?>
-					<div class="icon people"><a href="#"></a></div>
+					<div class="icon people"><a href="/environment"></a></div>
 				<?php endif; ?>
 				<?php if(strpos($focus, 'Environment') !== false): ?>
-					<div class="icon enviro"><a href="#"></a></div>
+					<div class="icon enviro"><a href="/people"></a></div>
 				<?php endif; ?>
 			</div>
 

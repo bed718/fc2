@@ -66,3 +66,17 @@
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3{ page-break-after: avoid; }
 }
+
+html, body {
+	height: 100%;
+}
+#container {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -310px !important; /* the bottom margin is the negative value of the footer's height */
+}
+#footer, .push {
+	height: 310px; /* .push must be the same height as .footer */
+}
+

@@ -44,8 +44,8 @@ div{position: relative;}
  * Also: hot pink!
  */
 
-::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
-::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::-moz-selection { background: #5A9B9D; color: #fff; text-shadow: none; }
+::selection { background: #5A9B9D; color: #fff; text-shadow: none; }
 
 
 

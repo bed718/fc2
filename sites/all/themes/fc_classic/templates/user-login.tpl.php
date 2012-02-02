@@ -1,6 +1,6 @@
-<div class="user-login">
+<div class="user-login clearfix">
 	<fieldset id="account-info" class="field-group-fieldset group-user-details required-fields  form-wrapper">
-		<div class="legend"><span class="fieldset-legend">Login</span></div>		
+		<legend class="legend"><span class="fieldset-legend">Login</span></legend>		
 		<?php print drupal_render_children($form); ?>
 	</fieldset>
 </div>

@@ -20,7 +20,10 @@
  *
  * @see template_preprocess_search_results()
  */
+
 ?>
+
+
 <?php if ($search_results): ?>
  <div class="page-header">
  	<h2><?php print t('Search Results'); ?></h2>

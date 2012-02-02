@@ -1,3 +1,13 @@
+
+<?php
+	if($fields['field_charity_volunteer']->content){
+		$time_link = $fields['field_charity_volunteer']->content;
+	}else{
+		$time_link = $fields['field_charity_website']->content;
+	}
+
+?>
+
 <div class="archive charity clearfix">
 	<?php if($fields['field_charity_profile_image']->content): ?>
 	<div class="image">
@@ -9,7 +19,7 @@
 		<h2><span class="q-mark">&ldquo;</span><?php print $fields['field_charity_mission_short']->content; ?><span class="q-mark">&rdquo;</span></h2>
 		
 		<div class="give-btn">
-			<div class="time-btn top-tip"  title="<div class='arrow'></div>donate your time"><a href="<?php print $time_link; ?>"></a></div>
+			<div class="time-btn top-tip"  title="<div class='arrow'></div>donate your time"><a href="<?php print $time_link; ?>"  target="_blank"></a></div>
 			<div class="money-btn top-tip show-doantion"  title="<div class='arrow'></div>donate money"><a href="#<?php //print $time_link; ?>"></a></div>
 		</div> 
 	</div><!-- /details --> 

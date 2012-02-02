@@ -35,7 +35,7 @@ input[type='file']:focus,
 textarea:focus{background: #fff; color: #354141}
 
 .form-item, .form-actions, .form-item .form-item{margin: 0; padding: 0;}
-.form-required{color: #5A9B9D;}
+.form-required{color: #ec7d7d;}
 .form-item{margin-bottom: 10px;}
 
 .form-item input.error,
@@ -51,6 +51,7 @@ form input[type='submit']:hover,
 .checkout-buttons .checkout-cancel:hover, 
 .checkout-buttons .checkout-back:hover{background: #5A9B9D; color: #fff; text-decoration: none;}
 form .submit{text-align: right;}
+#edit-actions{text-align: right;}
 
 
 
@@ -70,7 +71,7 @@ input[type='file']{padding: 0 5px; line-height: 30px; height: 30px; color: #AFD5
 .form-type-textarea textarea{clear: both; height: 200px;}
 
 /* CHECK BOXES */
-.form-checkboxes{padding-left: 190px;}
+.form-checkboxes, .form-radios{padding-left: 190px;}
 .form-type-checkbox{ margin-right: 10px;  color: #5A9B9D;  text-align: left;}
 label.option{float: none;  color: #5A9B9D; font-size: 12px; font-weight: bold;}
 
@@ -141,13 +142,16 @@ label.option{float: none;  color: #5A9B9D; font-size: 12px; font-weight: bold;}
 #username-check-message em{color: #fff;}
 
 
-fieldset{ background:#2a3131; margin-bottom: 30px; padding-bottom: 5px;}
-.fieldset-description{padding: 5px; background: #394A4A; margin-bottom: 10px; margin-top: -10px;}
+fieldset{ background:#2a3131; margin-bottom: 30px; padding-bottom: 5px; padding-top: 10px;}
+.fieldset-description{padding: 5px 0 5px 10px; background: #394A4A; margin-bottom: 10px; margin-top: -10px; width: 80%;}
 fieldset fieldset{ background:#2a3131; border: none; margin-bottom: 0;}
 fieldset fieldset .legend{font-size: 16px; color: #fff; font-weight: bold; height: 20px; line-height: 20px; float: left; width: 180px; text-align: right; margin-right: 10px; padding: 0; text-transform: capitalize; background: none;}
 fieldset fieldset label{width: auto; float: left; color: #AFD5D6;}
 
-.legend{ height: 20px; line-height: 20px; font-size: 18px; text-transform: uppercase; color: #354141; font-weight: bold; background: #5A9B9D; padding-left: 10px; margin-bottom: 10px; }
+.legend{ height: 20px; line-height: 20px; font-size: 18px; text-transform: uppercase; color: #354141; font-weight: bold; background: #5A9B9D; margin-bottom: 10px; width: 100%;}
+.fieldset-legend{padding-left: 10px;}
+
+.fieldset-title{color: #354141;}
 
 html.js fieldset.collapsible, 
 fieldset{}
@@ -194,5 +198,29 @@ html.js input.throbbing{}
 #comment-form{background: #2a3131; padding: 10px;}
 #comment-form #edit-actions{text-align: right; padding-right: 15px;}
 #edit-subject{width: 325px;}
+
+#contact-site-form > div{background: #2a3131; padding: 10px;}
+
+.field-name-field-uesr-zip .form-type-checkbox .description{display: none;}
+
+
+.field-widget-link-field{}
+.field-widget-link-field .description{display: none;}
+.field-widget-link-field > div > .form-item > label{/* display: none; */}
+.field-widget-link-field label{/* text-align: left; */}
+div.link-field-column .form-text{width: 280px;}
+div.link-field-column{width: 300px; padding: 0 10px 10px;}
+
+
+
+#edit-field-event-date .fieldset-description{display: none;}
+.field-name-field-event-date .container-inline-date{clear: both; padding-left: 10px;}
+.container-inline-date label{text-align: left;}
+.container-inline-date .description{clear: none; display: none;}
+
+
+.form-item-profile-charity-field-charity-website-und-0 label:after,
+.form-item-profile-charity-field-charity-location-und-0-province label:after,
+.form-item-profile-charity-field-charity-location-und-0-postal-code label:after{content: '*'; color: #ec7d7d;}
 
 

@@ -1,4 +1,4 @@
-<div class="user-register sideleft-big">
+<div class="user-register sideleft-big clearfix">
 	
 	
 	<div class="side-content">
@@ -56,7 +56,7 @@
 	
 	<div class="main-content">
 		<fieldset id="account-info" class="field-group-fieldset group-user-details required-fields  form-wrapper">
-			<div class="legend"><span class="fieldset-legend">Account Info</span></div>
+			<legend class="legend"><span class="fieldset-legend">Account Info</span></legend>
 			<?php print $rendered; ?>
 		</fieldset>
 		
