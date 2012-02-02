@@ -67,7 +67,7 @@
 				<?php print render($page['sidebar_first']); ?>
 			</div>
 			<div class="main-content">
-			<?php if ($title123): ?>
+			<?php if ($title): ?>
 			 <div class="page-header">
 			   <h2><?php print $title; ?></h2>
 			 </div>

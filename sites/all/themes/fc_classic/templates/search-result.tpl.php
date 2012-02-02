@@ -83,8 +83,6 @@
 ?>
 <td>
 <div class="teaser">
-<pre><?php //print_r($result['fields']);?></pre>
-
 	<?php if($thumbnail): ?>
 	<div class="image-icons">
 		
@@ -126,7 +124,7 @@
 		<?php if($type != 'user'): ?>
 		<div class="stats">
 			<span class="date"><?php print $created; ?></span> &bull;
-			<span class="type"><a href="#"><?php print $type; ?></a></span> 
+			<span class="type"><a href="/type/<?php print $type; ?>"><?php print $type; ?></a></span> 
 			<?php if($comment_count != 0): ?>
 				&bull;
 				<span class="comments"><a href="<?php print $url; ?>#comments">comments ( <?php print $comment_count; ?> )</a></span>				

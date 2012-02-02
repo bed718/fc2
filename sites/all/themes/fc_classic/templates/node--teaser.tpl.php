@@ -28,7 +28,7 @@
 	<div class="details">
 		<h1><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h1>
 		<div class="stats">
-			<?php if($type == 'event'){print $event_date;}else{print $created;} ?> &bull;
+			<?php if($type == 'event'){print '<span class="event-details">' . $event_date . '</span>';}else{print $created;} ?> &bull;
 			<?php if($event_city || $event_state): ?>
 				<span class="event-location"><?php print $event_city; ?> <?php print $event_state; ?></span> &bull;
 			<?php endif; ?>

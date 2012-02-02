@@ -58,7 +58,9 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 /* SECTION HEADER */
 .page-header{ border-bottom: #5A9B9D solid 5px; margin-bottom: 10px; width: 100%;}
 	.page-header h2{font-size: 24px; font-weight: normal; color: #fff; margin: 0; padding: 0 0 5px;}
+	.page-header .more-btn{position: absolute; bottom: 5px; right: 0; display: block; font-size: 10px; text-transform: uppercase; font-weight: bold;}
 
+	
 /* SECTION HEADER */
 .section-header{height: 25px; border-bottom: #5A9B9D solid 5px; margin-bottom: 10px; width: 100%;}
 	.section-header h2{font-size: 16px; font-weight: normal; color: #fff; margin: 0; padding: 0 0 5px;}
@@ -267,7 +269,7 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 			.teaser .details .stats .comments{}
 		.teaser .details .author{padding: 0 5px 5px; font-size: 10px; font-weight: bold; text-transform: uppercase;}
 		.teaser .mission{padding: 5px;}	
-
+		.teaser .event-details{font-size: 14px; text-transform: none; font-weight: normal;}
 
 
 /* TEASER SMALL STYLES ---------------------- */
