@@ -4,31 +4,31 @@
 	<div class="side-content">
 		<div class="reg-icons">
 			<div class="icons icons-52 main-focus">
-			   <div class="icon animal top-tip" title="<div class='arrow'></div>animals"><a href="/fc/animals"></a></div>
-			   <div class="icon enviro top-tip" title="<div class='arrow'></div>environment"><a href="/fc/environment"></a></div>
-			   <div class="icon people top-tip" title="<div class='arrow'></div>people"><a href="/fc/people"></a></div>
+			   <div class="icon animal top-tip" title="<div class='arrow'></div>animals"><a href="/animals"></a></div>
+			   <div class="icon enviro top-tip" title="<div class='arrow'></div>environment"><a href="/environment"></a></div>
+			   <div class="icon people top-tip" title="<div class='arrow'></div>people"><a href="/people"></a></div>
 			</div>
 		</div>
 		
 		<?php if($reg_type == 'user'): ?>
-			<img src="/fc/<?php print path_to_theme(); ?>/images/FC_signup_user_header.png" />
+			<img src="/<?php print path_to_theme(); ?>/images/FC_signup_user_header.png" />
 		<?php else: ?>
-			<img src="/fc/<?php print path_to_theme(); ?>/images/FC_signup_charity_header.png" />
+			<img src="/<?php print path_to_theme(); ?>/images/FC_signup_charity_header.png" />
 		<?php endif; ?>
 		
 		<div class="dark-box">
 			Wait, I wanted to sign up as a
 			<?php if($reg_type == 'user'): ?>
-				charity. <a href="/fc/charity/register">(CLICK HERE)</a>
+				charity. <a href="/charity/register">(CLICK HERE)</a>
 			<?php else: ?>
-				user. <a href="/fc/user/register">(CLICK HERE)</a>
+				user. <a href="/user/register">(CLICK HERE)</a>
 			<?php endif; ?>
 		</div>
 		
-		<img src="/fc/<?php print path_to_theme(); ?>/images/FC_signup_why.png" />
+		<img src="/<?php print path_to_theme(); ?>/images/FC_signup_why.png" />
 		
 		<?php if($reg_type == 'user'): ?>
-			<img src="/fc/<?php print path_to_theme(); ?>/images/FC_signup_user_why.png" />
+			<img src="/<?php print path_to_theme(); ?>/images/FC_signup_user_why.png" />
 			<ul class="list-med">
 				<li><span>Find, follow, and interact with fresh charities</li>
 				<li><span>Create and update a personal profile</li>
@@ -38,7 +38,7 @@
 				<li><span>It's free!</li> 
 			</ul>
 		<?php else: ?>
-			<img src="/fc/<?php print path_to_theme(); ?>/images/FC_signup_charity_why.png" />
+			<img src="/<?php print path_to_theme(); ?>/images/FC_signup_charity_why.png" />
 			<ul class="list-med">
 				<li><span>Create, maintain and update a charity profile</span></li>
 				<li><span>Post updates, videos, pictures, and events</span></li>

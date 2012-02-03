@@ -24,7 +24,7 @@ function fc_form_overrides_form_alter(&$form, $form_state, $form_id){
 			$form['#attributes']['class'][] = 'clearfix';
 			$form['basic']['keys']['#title'] = t('Search: ');
 			$form['basic']['submit']['#type'] = 'image_button';
-			$form['basic']['submit']['#src'] = '/fc/' . path_to_theme() . '/images/FC_search_btn.png';	
+			$form['basic']['submit']['#src'] = path_to_theme() . '/images/FC_search_btn.png';	
 			//dsm($form);		
 		break;
 		
@@ -32,7 +32,7 @@ function fc_form_overrides_form_alter(&$form, $form_state, $form_id){
 			$form['#attributes']['class'][] = 'clearfix';
 			$form['basic']['keys']['#title'] = t('Search: ');
 			$form['basic']['submit']['#type'] = 'image_button';
-			$form['basic']['submit']['#src'] = '/fc/' . path_to_theme() . '/images/FC_search_btn.png';
+			$form['basic']['submit']['#src'] = path_to_theme() . '/images/FC_search_btn.png';
 			//dsm($form);
 		break;
 		
@@ -41,7 +41,7 @@ function fc_form_overrides_form_alter(&$form, $form_state, $form_id){
 			$form['#attributes']['class'][] = 'clearfix';
 			//$form['basic']['keys']['#title'] = t('Search: ');
 			$form['actions']['submit']['#type'] = 'image_button';
-			$form['actions']['submit']['#src'] = '/fc/' . path_to_theme() . '/images/FC_search_btn.png';
+			$form['actions']['submit']['#src'] = path_to_theme() . '/images/FC_search_btn.png';
 		break;
 		
 		case 'comment_node_article_form':

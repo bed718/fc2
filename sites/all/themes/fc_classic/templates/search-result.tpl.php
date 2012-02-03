@@ -131,7 +131,7 @@
 			<?php endif; ?>	
 		</div> 		
 		<div class="author">
-			by: <a href="/fc/<?php print $profile_type; ?>/<?php print $user_name; ?>"><?php print $profile_name; ?></a>
+			by: <a href="/<?php print $profile_type; ?>/<?php print $user_name; ?>"><?php print $profile_name; ?></a>
 		</div>
 		<?php endif; ?>
 		<?php if($profile_type == 'charity' && $type == 'user'): ?>

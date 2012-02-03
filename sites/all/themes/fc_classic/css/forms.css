@@ -42,6 +42,8 @@ textarea:focus{background: #fff; color: #354141}
 .form-item textarea.error, 
 .form-item select.error{border: #ec7d7d solid 3px;}
 
+.html.js input.form-autocomplete{}
+
 
 /* SUBMIT BTN */
 input[type='submit'],
@@ -129,7 +131,8 @@ label.option{float: none;  color: #5A9B9D; font-size: 12px; font-weight: bold;}
 #edit-buttons{background: none;}
 #edit-buttons{font-size: 14px; font-weight: bold; text-transform: uppercase;}
 #edit-continue{margin-right: 10px;}
-#edit-cancel{margin-left: 10px;}
+#edit-cancel,
+#edit-back{margin-left: 10px;}
 #edit-checkout{margin-left: 10px;}
 
 .commerce-order-handler-area-order-total .commerce-price-formatted-components tr.component-type-commerce-price-formatted-amount{font-size: 18px; padding: 10px}
@@ -171,7 +174,7 @@ html.js fieldset.collapsed legend a span:hover,
 html.js fieldset.collapsible legend a span:hover{}
 
 html.js fieldset.collapsible .fieldset-wrapper {}
-html.js input.form-autocomplete{}
+html.js input.form-autocomplete{background-image: none;}
 html.js input.throbbing{}
 
 .vertical-tabs,

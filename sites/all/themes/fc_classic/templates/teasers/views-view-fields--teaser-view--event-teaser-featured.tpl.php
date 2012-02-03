@@ -61,9 +61,9 @@
 			</div>
 			<div class="author">
 				<?php if($fields['field_charity_name']->content): ?>
-					posted by: <a href="/fc/charity/<?php print $fields['name']->content; ?>"><?php print $fields['field_charity_name']->content; ?></a>
+					posted by: <a href="/charity/<?php print $fields['name']->content; ?>"><?php print $fields['field_charity_name']->content; ?></a>
 				<?php else: ?>
-					posted by: <a href="/fc/user/<?php print $fields['name']->content; ?>"><?php print $fields['field_user_name']->content; ?></a>
+					posted by: <a href="/user/<?php print $fields['name']->content; ?>"><?php print $fields['field_user_name']->content; ?></a>
 				<?php endif; ?>
 		</div> 
 	</div><!-- /details --> 

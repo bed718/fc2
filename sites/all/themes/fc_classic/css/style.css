@@ -52,7 +52,7 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 
 .region-header{width: 955px; height: 110px;  padding: 0 10px; position: absolute; top: 0; left: 0;}
 
-#logo{float: left;}
+#logo{float: left; z-index: 100;}
 #logo a{line-height: 0; display: block;}
 
 /* SECTION HEADER */
@@ -76,7 +76,7 @@ ul, li, .item-list ul{margin: 0; padding: 0;}
 
 .pane-title, h2.title{height: 25px; border-bottom: #5A9B9D solid 5px; margin-bottom: 10px; font-size: 20px; font-weight: normal; color: #fff;}
 
-.header-info{background: #3D5354; padding: 10px; font-size: 10px; margin-top: -10px; margin-bottom: 20px;} 
+.header-info{background: #3D5354; padding: 10px; font-size: 16px; line-height: 24px; margin-top: -10px; margin-bottom: 20px;} 
 .header-info p{font-size: 16px; line-height: 24px; margin: 0;}
 
 #skip{display: none;}
@@ -532,6 +532,25 @@ td.views-field-line-item-title{font-size: 16px;}
 -------------------------------------------------------------- */
 .cart-block-small{position: absolute; top: 30px; right: 0; background: #394A4A; padding: 5px 10px; font-weight: bold;}
 #views-form-commerce-cart-form-default input[type='text']{width: 20px; text-align: center;}
+
+.checkout-review{width: 100%;}
+table.checkout-review .pane-title td{ background: none repeat scroll 0 0 #5A9B9D;
+    color: #354141;
+    font-size: 18px;
+    font-weight: bold;
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    width: 100%;}
+
+.checkout-help,
+.checkout-completion-message{padding: 10px; background: #394A4A; font-size: 18px;}
+
+table.checkout-review .pane-data{}
+table.checkout-review .pane-data-full{padding: 0; padding-bottom: 20px;}
+table.checkout-review .pane-data-full .form-item,
+table.checkout-review .pane-data-full .field-item{padding: 10px; background: #2a3131;}
 
 
 

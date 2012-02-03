@@ -32,10 +32,10 @@
 			<?php if($event_city || $event_state): ?>
 				<span class="event-location"><?php print $event_city; ?> <?php print $event_state; ?></span> &bull;
 			<?php endif; ?>
-			<a href="/fc/type/<?php print $type; ?>"><?php print $type; ?></a>
+			<a href="/type/<?php print $type; ?>"><?php print $type; ?></a>
 		</div>
 		<div class="author">
-			by: <a href="/fc/<?php print $profile_type; ?>/<?php print $node->name; ?>"><?php print $profile_name; ?></a>
+			by: <a href="/<?php print $profile_type; ?>/<?php print $node->name; ?>"><?php print $profile_name; ?></a>
 		</div>
 	</div><!-- /details --> 
 </div> <!-- /teaser-small --> 

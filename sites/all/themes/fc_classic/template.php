@@ -19,7 +19,7 @@ function fc_classic_preprocess_page(&$vars){
 		$vars['user']->user_type = 'user';
 	}
 	
-	$vars['user']->profile_path = '/fc/' . $vars['user']->user_type . '/' . $vars['user']->name;
+	$vars['user']->profile_path = $vars['user']->user_type . '/' . $vars['user']->name;
 	//kpr($vars);
 }
  

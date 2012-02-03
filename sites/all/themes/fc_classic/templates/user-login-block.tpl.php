@@ -12,10 +12,10 @@
 	</div>
 	<div class="signup-btns clearfix">
 		<div class="signup">Sign up</div>
-		<div class="arrow"><img src="/fc/<?php print path_to_theme(); ?>/images/FC_signup_arrow.png" /></div>
-		<div class="user"><a href="/fc/user/register">User</a></div>
+		<div class="arrow"><img src="/<?php print path_to_theme(); ?>/images/FC_signup_arrow.png" /></div>
+		<div class="user"><a href="/user/register">User</a></div>
 		<div class="or">or</div>
-		<div class="charity"><a href="/fc/charity/register">Charity</a></div>
+		<div class="charity"><a href="/charity/register">Charity</a></div>
 		
 	</div>
 	<div class="footer">

@@ -16,17 +16,17 @@
 
 <div class="profile-header">
 	<div class="image">
-		<a href="/fc/charity/<?php print $fields['name']->content; ?>"><?php print $fields['field_charity_profile_image']->content; ?></a>
+		<a href="/charity/<?php print $fields['name']->content; ?>"><?php print $fields['field_charity_profile_image']->content; ?></a>
 		<div class="icons">
 			<div class="icon-focus icons-25">
 				<?php if(strpos($focus, 'Animal') !== false): ?>
-					<div class="icon animal"><a href="#"></a></div>
+					<div class="icon animal"><a href="/animals"></a></div>
 				<?php endif; ?>
 				<?php if(strpos($focus, 'People') !== false): ?>
-					<div class="icon people"><a href="#"></a></div>
+					<div class="icon people"><a href="people"></a></div>
 				<?php endif; ?>
 				<?php if(strpos($focus, 'Environment') !== false): ?>
-					<div class="icon enviro"><a href="#"></a></div>
+					<div class="icon enviro"><a href="/environment"></a></div>
 				<?php endif; ?>
 			</div>
 			<div class="icons-bg"></div>
@@ -41,19 +41,19 @@
 	</div>
 	<div class="details">
 		<div class="hgroup">
-			<h1><a href="#"><?php print $fields['field_charity_name']->content; ?></a></h1>
+			<h1><a href="/charity/<?php print $fields['name']->content; ?>"><?php print $fields['field_charity_name']->content; ?></a></h1>
 			<h2><span>&ldquo;</span><?php print $fields['field_charity_mission_short']->content; ?><span>&rdquo;</span></h2>
 		</div>
 		
 		<div class="nav-give">
 			<div class="nav">
-				<a href="/fc/charity/<?php print $fields['name']->content; ?>">Overview</a>
-				<a href="/fc/charity/<?php print $fields['name']->content; ?>/news">news</a>
-				<a href="/fc/charity/<?php print $fields['name']->content; ?>/events">events</a>
-				<a href="/fc/charity/<?php print $fields['name']->content; ?>/videos">videos</a>
-				<a href="/fc/charity/<?php print $fields['name']->content; ?>/pictures">pictures</a>
-				<a href="/fc/charity/<?php print $fields['name']->content; ?>/projects">projects</a>
-				<a href="/fc/charity/<?php print $fields['name']->content; ?>/needs">needs</a>
+				<a href="/charity/<?php print $fields['name']->content; ?>">Overview</a>
+				<a href="/charity/<?php print $fields['name']->content; ?>/news">news</a>
+				<a href="/charity/<?php print $fields['name']->content; ?>/events">events</a>
+				<a href="/charity/<?php print $fields['name']->content; ?>/videos">videos</a>
+				<a href="/charity/<?php print $fields['name']->content; ?>/pictures">pictures</a>
+				<a href="/charity/<?php print $fields['name']->content; ?>/projects">projects</a>
+				<a href="/charity/<?php print $fields['name']->content; ?>/needs">needs</a>
 			</div>
 			
 			<div class="give-btn">

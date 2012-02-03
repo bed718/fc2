@@ -13,35 +13,35 @@
 				<li>
 					<a href="<?php print $user->profile_path; ?>">my profile</a>
 					<ul>
-						<li><a href="<?php print '/fc/user/' . $user->uid . '/edit/' . $user->user_type; ?>">edit my profile</a></li>
-						<li><a href="<?php print '/fc/user/' . $user->uid . '/edit'; ?>">edit my account</a></li>
+						<li><a href="<?php print '/user/' . $user->uid . '/edit/' . $user->user_type; ?>">edit my profile</a></li>
+						<li><a href="<?php print '/user/' . $user->uid . '/edit'; ?>">edit my account</a></li>
 						<li><a href="/cart">my cart</a></li>
 					</ul>
 				</li>
 				<li>
-					<a href="/fc/add-content">add content</a>
+					<a href="/add-content">add content</a>
 					<ul>
 						<?php if($user->user_type == 'charity'): ?>
-							<li><a href="/fc/node/add/news">add news</a></li>
-							<li><a href="/fc/node/add/event">add events</a></li>
-							<li><a href="/fc/node/add/pictures">add pictures</a></li>
-							<li><a href="/fc/node/add/video">add a video</a></li>
-							<li><a href="/fc/node/add/need">add needs</a></li>
-							<li><a href="/fc/node/add/project">add a project</a></li>
+							<li><a href="/node/add/news">add news</a></li>
+							<li><a href="/node/add/event">add events</a></li>
+							<li><a href="/node/add/pictures">add pictures</a></li>
+							<li><a href="/node/add/video">add a video</a></li>
+							<li><a href="/node/add/need">add needs</a></li>
+							<li><a href="/node/add/project">add a project</a></li>
 						<? else: ?>
-							<li><a href="/fc/node/add/article">add a article/story</a></li>
-							<li><a href="/fc/node/add/pictures">add some pictures</a></li>
-							<li><a href="/fc/node/add/event">add an event</a></li>
-							<li><a href="/fc/node/add/video">add a video</a></li>
+							<li><a href="/node/add/article">add a article/story</a></li>
+							<li><a href="/node/add/pictures">add some pictures</a></li>
+							<li><a href="/node/add/event">add an event</a></li>
+							<li><a href="/node/add/video">add a video</a></li>
 						<?php endif; ?>
 					</ul>
 				</li>
-				<li><a href="/fc/user/logout">log out</a></li>
+				<li><a href="/user/logout">log out</a></li>
 			<?php endif; ?>
 			</ul>
 		</div>
 		
-		<div id="logo"><a href="/fc"><img src="<?php print $logo; ?>" /></a></div>
+		<div id="logo"><a href=""><img src="<?php print $logo; ?>" /></a></div>
 		
 		
 		<?php print render($page['header']); ?>

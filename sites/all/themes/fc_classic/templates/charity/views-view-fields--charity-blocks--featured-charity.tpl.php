@@ -22,7 +22,7 @@
 
 	<div class="image-icons">
 		<div class="image">
-			<a href="/fc/charity/<?php print $fields['name']->content; ?>"><?php print $fields['field_charity_profile_image']->content; ?></a>
+			<a href="/charity/<?php print $fields['name']->content; ?>"><?php print $fields['field_charity_profile_image']->content; ?></a>
 		</div>
 		<div class="icons">
 			<div class="icon-focus icons-30">
@@ -41,7 +41,7 @@
 	</div> <!-- /image-icons --> 
 	
 	<div class="details">
-		<h1><a href="/fc/charity/<?php print $fields['name']->content; ?>"><?php print $fields['field_charity_name']->content; ?> </a></h1>
+		<h1><a href="/charity/<?php print $fields['name']->content; ?>"><?php print $fields['field_charity_name']->content; ?> </a></h1>
 		<div class="mission"><span class="q-mark">&ldquo;</span><?php print $fields['field_charity_mission_short']->content; ?><span class="q-mark">&rdquo;</span></div>
 		<div class="give-btn">
 			<div class="time-btn top-tip"  title="<div class='arrow'></div>donate your time"><a href="<?php print $time_link; ?>" target="_blank"></a></div>
