@@ -41,7 +41,7 @@
 			</ul>
 		</div>
 		
-		<div id="logo"><a href=""><img src="<?php print $logo; ?>" /></a></div>
+		<div id="logo"><a href="/"><img src="<?php print $logo; ?>" /></a></div>
 		
 		
 		<?php print render($page['header']); ?>

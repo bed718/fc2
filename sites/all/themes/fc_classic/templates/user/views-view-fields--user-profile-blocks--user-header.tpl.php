@@ -4,7 +4,7 @@
 
 <div class="profile-header user-header">
 	<div class="image">
-		<a href="/fc/user/<?php print $fields['name']->content; ?>"><?php print $fields['field_user_profile_image']->content; ?></a>
+		<a href="/user/<?php print $fields['name']->content; ?>"><?php print $fields['field_user_profile_image']->content; ?></a>
 		<div class="icons">
 			<div class="icon-focus icons-25">
 				<?php if(strpos($focus, 'Animal') !== false): ?>
@@ -26,10 +26,10 @@
 		
 		<div class="nav-give">
 			<div class="nav">
-				<a href="/fc/user/<?php print $fields['name']->content; ?>">Overview</a>
-				<a href="/fc/user/<?php print $fields['name']->content; ?>/my-posts">my posts</a>
-				<a href="/fc/user/<?php print $fields['name']->content; ?>/saved-events">saved events</a>
-				<a href="/fc/user/<?php print $fields['name']->content; ?>/followed-charities">followed charities</a>
+				<a href="/user/<?php print $fields['name']->content; ?>">Overview</a>
+				<a href="/user/<?php print $fields['name']->content; ?>/my-posts">my posts</a>
+				<a href="/user/<?php print $fields['name']->content; ?>/saved-events">saved events</a>
+				<a href="/user/<?php print $fields['name']->content; ?>/followed-charities">followed charities</a>
 			</div>			
 		</div>
 	</div>

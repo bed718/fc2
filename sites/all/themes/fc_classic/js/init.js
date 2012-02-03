@@ -2,8 +2,8 @@ Drupal.behaviors.loginblock = {
 	attach: function (context, settings) {
 		jQuery('.user-login-block').css('display', 'none');
 		jQuery('.user-login-block .close-btn').click(function(){jQuery('.user-login-block').slideToggle(500);});
-		jQuery('.show-login').hover(function(){jQuery('.user-login-block').slideDown(500);});
-		//jQuery('.show-login').click(function(){jQuery('.user-login-block').slideToggle(500);});
+		//jQuery('.show-login').hover(function(){jQuery('.user-login-block').slideDown(500);});
+		jQuery('.show-login').click(function(){jQuery('.user-login-block').slideToggle(500);});
 	}	
 }
 
