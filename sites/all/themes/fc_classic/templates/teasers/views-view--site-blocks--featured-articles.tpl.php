@@ -94,39 +94,7 @@
 
 <script>
 	jQuery(document).ready(function(){
-		var total_items = 4;
-		var last_item;
-		var current_item = 1;
 		
-		jQuery('.teaser-featured-large .views-row-1').css('display', 'block');
-		
-		jQuery('.next-btn').click(function(){ clearInterval(show); nextItem();});
-		jQuery('.last-btn').click(function(){clearInterval(show); lastItem();});
-		
-		
-		function nextItem(){
-			last_item = current_item;
-			current_item++;
-			if(current_item == total_items + 1){
-				current_item = 1;
-			}
-			fadeItems();
-		}
-		
-		function lastItem(){
-			last_item = current_item;
-			current_item--;
-			if(current_item == 0){
-				current_item = total_items;
-			}
-			fadeItems();
-		}
-		
-		function fadeItems(){
-			jQuery('.teaser-featured-large .views-row-'+current_item).fadeIn(1000);
-			jQuery('.teaser-featured-large .views-row-'+last_item).fadeOut(1000);
-		}
-		var show = setInterval(nextItem, 5000);
 	});
 </script>
 

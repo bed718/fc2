@@ -5,6 +5,14 @@
 	</div>
 	<div class="info clearfix">
 		<ul>
+		
+		<?php if($fields['field_event_charity_source']->content): ?>
+		<li>
+			<h2>From:</h2>
+		   <div class="type"><?php print $fields['field_event_charity_source']->content; ?></div>
+		</li>
+		<?php endif; ?>
+		
 		<li>
 			<h2>When:</h2>
 			<div class="date"><?php print $fields['field_event_date']->content; ?></div>
