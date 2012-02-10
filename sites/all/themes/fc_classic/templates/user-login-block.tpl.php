@@ -16,7 +16,6 @@
 		<div class="user"><a href="/user/register">User</a></div>
 		<div class="or">or</div>
 		<div class="charity"><a href="/charity/register">Charity</a></div>
-		
 	</div>
 	<div class="footer">
 		Sign up to access all Fresh Charities has to offer. <a href="/learn-more">Click here to learn more.</a>

@@ -575,7 +575,7 @@ _____________________________________________________________________________
 #about-text{line-height: 20px; margin-bottom: 80px;}
 #about-text p{}
 #about-text .quote{float: left; padding: 8px 20px 15px 0; font-size: 20px; color: #fff; width: 210px; line-height: 30px; text-align: right;}
-#about-text .quote-mark{color: #5A9B9D; font-family: Georgia, Arial, sans-serif;  color: #5A9B9D !important; font-weight: normal !important; padding:2px;  font-size: 24px;}
+.quote-mark{color: #5A9B9D; font-family: Georgia, Arial, sans-serif;  color: #5A9B9D !important; font-weight: normal !important; padding:2px;  font-size: 24px;}
 #team-1{float: right; margin-left: 20px; margin-bottom: 50px;}
 .member{clear: both; margin-bottom: 50px;}
 

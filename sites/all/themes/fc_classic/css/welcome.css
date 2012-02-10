@@ -1,0 +1,101 @@
+/* 
+
+COLORS 
+	Green:				#5A9B9D
+	Dark Green :		#354141
+	Med Green:			#394A4A
+	Darker Green:		#2a3131
+	Dark Red:			#783d3d
+	BTN Green:			#3D5354
+	Light Red:			#ec7d7d
+	Light Green:		#AFD5D6
+	Other Green:		#497274
+	Date					#4f7879
+	
+FONTS
+	font-family: 'Cantarell', arial, sans-serif;
+	font-family: 'BebasNeueRegular';	
+
+STANDARDS
+	text btn: 		font-size: 10px; text-transform: uppercase; font-weight: bold;		
+
+	
+*/
+
+
+#w-page{width: 680px; margin: 0 auto; background: #394A4A;}
+
+#w-page h1 a{font-family: 'BebasNeueRegular'; font-size: 87px; color: #fff; font-weight: normal; line-height: 87px;}
+#w-page h2 a{font-family: 'BebasNeueRegular'; font-size: 35px; color: #2a3131; font-weight: normal; margin: -15px 0 0 3px; display: block;}
+
+
+#w-main-content{width: 450px; float: left; padding-right: 20px; border-top: #5A9B9D solid 10px; background: #354141; height: 475px;}
+#w-side-content{width: 210px; float: left; border-top: #5A9B9D solid 10px; background: #354141; height: 475px;}
+
+#w-video{width: 450px; height: 265px; background: #2a3131; }
+
+#w-signup-btns{background: #374a4a; padding: 10px 10px 0; font-family: 'BebasNeueRegular'; height: 60px; margin-top: 10px}
+	#w-signup-btns div{float: left;}
+	#w-signup{color: #fff; font-size: 46px; height: 60px; line-height: 60px;}
+	#w-arrow{margin: 0 10px;}
+	#w-user a,
+	#w-charity a{color: #354141; background: #fff; font-size: 30px;  height: 45px; line-height: 48px; padding: 0 15px; display: block;}
+	#w-user a:hover,
+	#w-charity a:hover{background: #5A9B9D; color: #fff;}
+	#w-or{color: #354141; background: #5A9B9D; height: 30px; width: 30px; line-height: 30px; border: #374a4a solid 6px; -webkit-border-radius: 25px; -moz-border-radius: 25px; border-radius: 25px; font-family: 'Cantarell', arial, sans-serif; text-transform: uppercase; font-weight: bold; text-align: center; font-size: 12px; margin: 4px -8px; z-index: 100;}
+
+#w-login-block{}
+#w-login-block legend{font-size: 10px; margin: 0;}
+#w-login-block .form-item{margin: 0;}
+#w-login-block label{font-size: 12px; text-align: left; margin-left: 10px; width: 75px; float: none;}
+#w-login-block input[type="text"],
+#w-login-block input[type="password"]{margin-left: 10px; width: 172px;}
+#w-login-block .form-item .description{width: 178px; margin: 0 0 0 10px; text-transform: uppercase; font-size: 10px;}
+#w-login-block .form-actions{text-align: right; margin-right: 12px; margin-top: 5px;}
+#w-login-block input[type="submit"]{font-size: 20px; height: 30px;}
+
+
+
+#w-quote{text-align: center; padding: 50px; clear: both; font-size: 18px;}
+#w-quote .quote-mark{font-size: 18px;}
+#w-footer{clear: both; width: 680px; margin: 0 auto; background: #5A9B9D; line-height: 40px; text-align: center; color: #354141; height: 40px;}
+
+.w-side-info{font-size: 30px; font-family: 'BebasNeueRegular'; color: #2a3131; position: absolute; left: -130px; width: 110px; top: 35px; text-align: right; opacity: 0; background: #354141;}
+.w-side-info img{float: right; margin: 4px 0 0 10px;}
+
+.w-side-info.w-right{left: auto; right: -130px; text-align: left;}
+.w-side-info.w-right img{float: left;  margin: 4px 10px 0 0;  }
+
+#w-what{top: 88px;}
+#w-why{top: 245px;}
+#w-login{top: 350px;}
+
+	
+/* 70px ---------------------- */
+#w-icons {height: 75px;}
+#w-icons .people{position: absolute; top: 5px; left: 0;}
+#w-icons .animal{position: absolute; top: 5px; right: 0;}
+#w-icons .enviro{position: absolute; top: 5px; left: 50%; margin-left: -35px;}
+
+.icons-70{}
+.icons-70 a{width: 70px; height: 70px; background: url(../images/welcome/FC_w_icons.png) no-repeat; display: block; line-height: 0; z-index: 100;}
+	.icons-70 .people a{background-position: -4px -4px;}
+	.icons-70 .enviro a{background-position: -78px -4px;}
+	.icons-70 .animal a{background-position: -152px -4px;}
+	
+	.icons-70 .people a:hover{background-position: -4px -79px;}
+	.icons-70 .enviro a:hover{background-position: -78px -79px;}
+	.icons-70 .animal a:hover{background-position: -152px -79px;}
+	
+html, body {
+	height: 100%;
+}
+#w-page {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -40px !important; /* the bottom margin is the negative value of the footer's height */
+}
+#w-footer, .w-push {
+	height: 40px; /* .push must be the same height as .footer */
+}
